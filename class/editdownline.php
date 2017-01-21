@@ -1,21 +1,19 @@
-<?php 
-        session_start();
-        //validamos de que alla una sesion active
-        if (isset($_SESSION['login']) && $_SESSION['login']==true) {
-          $id_name = $_SESSION['idname'];
-          $tipo_usu = $_SESSION['nivel'];
-            }
-            else{
-                echo "<script> 
-                alert('no puedes acceder')
-                window.location='../'
-                </script>";
-                exit;
-            }
+<?php
+    session_start();
+    //validamos de que alla una sesion active
+    if (isset($_SESSION['login']) && $_SESSION['login']==true) {
+      }
+      else{
+        echo "<script> 
+        alert('no puedes acceder')
+        window.location='../'
+        </script>";
+        exit;
+      }
 
       include("../conetion.php");
     
-  ?>
+ ?>
 
 
 <link href="../css/bootstrap.css" rel="stylesheet" type='text/css' />
@@ -54,37 +52,27 @@ body {
 <?php 
 
 
-if (isset($_POST['name']) && isset($_POST['id']) && isset($_POST['phone'])  && isset($_POST['email'])
-  && !empty($_POST['name']) && !empty($_POST['id']) && !empty($_POST['phone'])  && !empty($_POST['email'])){
+if (isset($_POST['name']) && isset($_POST['id']) && isset($_POST['phone']) && isset($_POST['phone2']) && isset($_POST['phone3']) && isset($_POST['email'])
+  && !empty($_POST['name']) && !empty($_POST['id']) && !empty($_POST['phone']) && !empty($_POST['phone2']) && !empty($_POST['phone3']) && !empty($_POST['email'])){
 
 //aqui resivimos los valores
 $id = $_POST['id'];
 $name = $_POST['name'];
 $phone = $_POST['phone'];
-
-if (isset($_POST['phone2']) && !empty($_POST['phone2'])) {
-  $phone2 = $_POST['phone2'];
-}else{
-  $phone2 = "";
-}
-
-if (isset($_POST['phone3']) && !empty($_POST['phone3'])) {
-  $phone3 = $_POST['phone3'];
-}else{
-  $phone3 = "";
-}
-
+$phone2 = $_POST['phone2'];
+$phone3 = $_POST['phone3'];
 $email = $_POST['email'];
+$coach = $_POST['coach'];
 
     if ($conexion->query("UPDATE `coachleads` SET `name` = '".$name."',`phone` = '".$phone."',`phone2` = '".$phone2."',`phone3` = '".$phone3."',`email` = '".$email."' WHERE `id` = ".$id) == TRUE) {
-      echo '<script>alert("Entrenador Actualizado Satisfactoriamente!");
-      window.location="../panel/panel.php";
-      </script>';
+      echo" <script>alert('Entrenador Bajo Linea Actualizado Satisfactoriamente!');
+      </script>";
+      header("location:../panel/panel.php");
     }else{
-      echo '<script>
-          alert("Error al Actualizar!"); 
+      echo "<script>
+          alert('Error al Actualizar!'); 
           history.back();
-        </script>';
+        </script>";
     }
 
 
@@ -126,13 +114,13 @@ $email = $_POST['email'];
               <label for="phone">Teléfono 2</label>
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-phone"></i>
-                <input type="text" class="form-control" value="<?php echo $row['phone2']; ?>""  id="phone2 name="phone2" />
+                <input type="text" class="form-control" value="<?php echo $row['phone2']; ?>""  id="phone" name="phone2" />
               </div>
 
               <label for="phone">Teléfono 3</label>
               <div class="inner-addon left-addon">
                 <i class="glyphicon glyphicon-phone"></i>
-                <input type="text" class="form-control" value="<?php echo $row['phone3']; ?>""  id="phone3 name="phone3" />
+                <input type="text" class="form-control" value="<?php echo $row['phone3']; ?>""  id="phone" name="phone3" />
               </div>
 
               <label for="email">Email</label>

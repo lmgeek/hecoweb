@@ -12,7 +12,7 @@
                 exit;
             }
 
-$conexion = new mysqli('localhost', 'thrdaytr_oportun', 'oportunidadhbl', 'thrdaytr_promocionhbl');
+include("../conetion.php");
 $id_coach = $_POST['id'];
 
 $result = $conexion->query("SELECT * FROM coachleads

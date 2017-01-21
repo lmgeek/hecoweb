@@ -1,0 +1,7 @@
+[31-Dec-2016 05:58:28 America/Denver] PHP Notice:  Undefined variable: name in /home2/thrdaytr/public_html/oportunidadhbl/hecoweb/class/fitcamp.php on line 89
+[31-Dec-2016 05:58:28 America/Denver] PHP Notice:  Undefined variable: phone in /home2/thrdaytr/public_html/oportunidadhbl/hecoweb/class/fitcamp.php on line 485
+[31-Dec-2016 05:58:28 America/Denver] PHP Notice:  Undefined variable: name in /home2/thrdaytr/public_html/oportunidadhbl/hecoweb/class/fitcamp.php on line 701
+[31-Dec-2016 05:58:28 America/Denver] PHP Notice:  Undefined variable: phone in /home2/thrdaytr/public_html/oportunidadhbl/hecoweb/class/fitcamp.php on line 1114
+[31-Dec-2016 07:31:29 America/Denver] PHP Notice:  Undefined variable: row in /home2/thrdaytr/public_html/oportunidadhbl/hecoweb/class/editcoach.php on line 115
+[31-Dec-2016 11:07:56 America/Denver] PHP Notice:  Undefined index: name in /home2/thrdaytr/public_html/oportunidadhbl/hecoweb/class/deletewebsite.php on line 5
+[31-Dec-2016 22:52:26 America/Denver] PHP Notice:  Undefined index: name in /home2/thrdaytr/public_html/oportunidadhbl/hecoweb/class/deletewebsite.php on line 5

@@ -100,6 +100,7 @@ if ($tipo_usu == "Administrador") {
 	  <h1>Bienvenid@ de vuelta <strong><i><?php echo $name_user; ?></i></strong></h1>
 	  <p align="center"><b>Beta v1.3.4</b></p>
 	  <p><?php echo $tipo_usu; ?></p>
+	  <?php echo $id_name; ?>
 
 	  <h3>Referred to: <strong><?php echo $name_coach; ?></strong></h3>
 

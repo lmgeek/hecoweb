@@ -47,7 +47,7 @@ if (isset($_GET['id']) && isset($_GET['dirname']) &&
     if ($result = $conexion->query("DELETE FROM webcoach WHERE id ='$id_coach'")) {
       delete_directory($dir);
       echo "<script>  alert('Capturadora eliminada Satisfactoriamente');
-      window.location='../panel/panel.php'; </script>";
+      history.back() </script>";
 
     } else {
       //echo "<script>  alert('Don\'t Exist Website in Database'); </script>";

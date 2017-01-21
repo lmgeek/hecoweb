@@ -71,7 +71,7 @@ $(document).ready(function(){
 </script>
 
 <?php 
-if ($tipo_usu == "Administrator") {
+if ($tipo_usu == "Administrador") {
    ?>
 
 

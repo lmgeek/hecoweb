@@ -1,4 +1,4 @@
-<?php 
+  <?php 
         session_start();
         //validamos de que alla una sesion active
         if (isset($_SESSION['login']) && $_SESSION['login']==true) {
@@ -103,6 +103,30 @@ if ($tipo_usu == "Administrador") {
         <div>
           <button type="button" class="btn btn-success"  onclick=" location.href='../class/fitcamp.php' ">
             <span class="glyphicon glyphicon-edit"></span> Duplicar a Tab
+          </button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/fitcamp2.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar a Bajo Linea
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+      <div class="col-md-3 " style="padding: 5px 0">
+        <img src="../images/bodyscan-2.jpg" alt="" width="100%">
+      </div>
+      <div class="col-md-9 " style="padding-right: 0px;">
+        <h3>Body Scan (Scanner Corporal)</h3>
+
+
+        <h4>Crear Capturadora para:</h4>
+
+        <div>
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/bodyscan.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar a Tab
+          </button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/bodyscan2.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar a Bajo Linea
           </button>
         </div>
       </div>
@@ -176,6 +200,30 @@ if ($tipo_usu == "Administrador") {
         <div>
           <button type="button" class="btn btn-success"  onclick=" location.href='../class/fitcamp.php' ">
             <span class="glyphicon glyphicon-edit"></span> Duplicar
+          </button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/fitcamp2.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar a Bajo Linea
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+      <div class="col-md-3 " style="padding: 5px 0">
+        <img src="../images/bodyscan-2.jpg" alt="" width="100%">
+      </div>
+      <div class="col-md-9 " style="padding-right: 0px;">
+        <h3>Body Scan</h3>
+
+
+        <h4>Crear Capturadora para:</h4>
+
+        <div>
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/bodyscan.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar
+          </button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/bodyscan2.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar a Bajo Linea
           </button>
         </div>
       </div>
@@ -232,7 +280,22 @@ if ($tipo_usu == "Administrador") {
         <h3>FitCamp</h3>
 
         <div>
-          <button type="button" class="btn btn-success"  onclick=" location.href='../class/fitcamp.php' ">
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/fitcamp2.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+      <div class="col-md-3 " style="padding: 5px 0">
+        <img src="../images/bodyscan-2.jpg" alt="" width="100%">
+      </div>
+      <div class="col-md-9 " style="padding-right: 0px;">
+        <h3>Body Scan</h3>
+
+        <div>
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/bodyscan2.php' ">
             <span class="glyphicon glyphicon-edit"></span> Duplicar
           </button>
         </div>

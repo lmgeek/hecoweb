@@ -4,8 +4,8 @@
  */
  
 
- $conexion = mysql_connect ("localhost", "thrdaytr_oportun", "oportunidadhbl");
- mysql_select_db ("thrdaytr_promocionhbl", $conexion);    
+ $conexion = mysql_connect ("localhost", "thrdaytr_webapp", "pRf_&lue#LU7");
+ mysql_select_db ("thrdaytr_planhbl", $conexion);    
  $sql = "SELECT * FROM emails ORDER BY firstname ASC";
  $resultado = mysql_query ($sql, $conexion) or die (mysql_error ());
  $registros = mysql_num_rows ($resultado);

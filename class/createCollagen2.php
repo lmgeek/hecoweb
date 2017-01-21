@@ -15,7 +15,9 @@
                 </script>";
                 exit;
             }
+    
 include("../conetion.php");
+
 
 /******************************************************************************************************/
 /**************************          CREA EL CLON DE 3 COLLAGEN          ******************************/
@@ -39,13 +41,22 @@ if (isset($_POST['id_coach_lead'])  && isset($_POST['folder']) &&
         $email = $row1['email'];
         $phone = $row1['phone'];
     }else {
-        echo "no data";
-    }
+        echo "no data";}
+
+    //VIDEO ESPAÑOL USA
+      if (isset($_POST['idvideo1']) && !empty($_POST['idvideo1']) && 
+          isset($_POST['video1']) && !empty($_POST['video1'])) {
+        $idvideo1 = $_POST['idvideo1'];
+        $video1 = $_POST['video1'];
+      }else{
+        $idvideo1 = '195158004';
+        $video1 = 'v-';
+      }
 
 $web = '
 <?php
-  $conexion = new mysqli("localhost", "thrdaytr_oportun", "oportunidadhbl", "thrdaytr_promocionhbl");
-  $search = $conexion->query(\'SELECT * FROM coach WHERE name ="'.$name.'"\');
+  $conexion = new mysqli("localhost", "thrdaytr_webapp", "pRf_&lue#LU7", "thrdaytr_planhbl");
+  $search = $conexion->query(\'SELECT * FROM coachleads WHERE id ="'.$id_coach_lead.'"\');
   if ($search->num_rows > 0) {
   $row = $search->fetch_assoc();
   $mail_coach = $row["email"];
@@ -58,17 +69,19 @@ $web = '
 <!DOCTYPE html>
 <html class="wide smoothscroll wow-animation desktop   landscape rd-navbar-fullwidth-linked" lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="http://planhbl.com/hecoweb/panel/visitas.php"></script>
+
     <!-- Site Title -->
     <title>Collagen</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <!-- Stylesheets -->
-    <link href="../css/css.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="../../css/css.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
 
     <!--[if lt IE 10]>
-    <script src="../js/html5shiv.min.js"></script>
+    <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
 </head>
 <!-- The Main Wrapper -->
@@ -78,6 +91,7 @@ $web = '
         padding-bottom: 56.25%; /* 16/9 ratio */
         padding-top: 30px; /* IE6 workaround*/
         height: 0;
+        width: 90%;
         overflow: hidden;
         }
 
@@ -112,7 +126,7 @@ $web = '
                     </div>
 
                     <div class="col-xs-12 offset-1">
-                        <div class="image-wrap-1"><img src="../images/page-1_img01.jpg" alt=""></div>
+                        <div class="image-wrap-1"><img src="../../images/page-1_img01.jpg" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -134,7 +148,7 @@ if($_POST["Continue"]){
 
 
   //ASUNTO DEL EMAIL
-  $asunto = "Collagen";
+  $asunto = "Collagen Captura";
 
 
   //MENSAJE DEL EMAIL
@@ -181,7 +195,6 @@ if($_POST["Continue"]){
   <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
       <tr align=\'center\' >
         <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          &reg; Herbalife<br/>
           
           <b><i>IMPORTANT NOTE:</i> DO NOT REPLY TO THIS MESSAGE, IF THIS MESSAGE COMES TO YOU FOR ANY INCORRECT OR CONSIDER THE SPAM,
             Contact technical support: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
@@ -300,7 +313,7 @@ if($_POST["Continue"]){
                     <div class="col-md-9">
                         <div class="video-responsive1">
                             <!--<img src="images/page-1_img01-.jpg">-->
-                            <iframe width="800" height="500" src="https://www.youtube.com/embed/umOWyDN9Lpw" frameborder="0" allowfullscreen></iframe>
+                            <iframe src="https://player.vimeo.com/video/'.$idvideo1.'" width="800" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -325,17 +338,17 @@ if($_POST["Continue"]){
                     </div>
                     <div class="col-md-4 col-md-preffix-1 offset-1">
                         <div class="image-wrap preffix-1 content-shift-up-1 img-width block-center">
-                            <img src="../images/page-1_img02.jpg" alt="" height="601" width="401">
+                            <img src="../../images/page-1_img02.jpg" alt="" height="601" width="401">
                         </div>
                     </div>
 
                     <div class="col-xs-12">
                         <div class="image-wrap-2 lg-visible">
-                            <img src="../images/page-1_img04.jpg" alt="" height="537" width="646"></div>
+                            <img src="../../images/page-1_img04.jpg" alt="" height="537" width="646"></div>
                     </div>
                     <div class="col-xs-12">
                         <div class="image-wrap-3 md-visible">
-                            <img src="../images/page-1_img03-old.jpg" alt="" height="546" width="397"></div>
+                            <img src="../../images/page-1_img03-old.jpg" alt="" height="546" width="397"></div>
                     </div>
                 </div>
             </div>
@@ -349,7 +362,7 @@ if($_POST["Continue"]){
                     <div class="col-sm-6 col-md-4">
                         <!--Figure-->
                         <figure class="figure">
-                            <p><img src="../images/collagenbg.jpg" alt=""></p>
+                            <p><img src="../../images/collagenbg.jpg" alt=""></p>
                             <div class="figure__overlay bg-secondary-3"></div>
                             <figcaption class="figure__body">
                                 <p style="font-size: 16px;">Collagen is what gives the dermis (the thick inner layer of our skin) its firm structure. As we age, the production of collagen in our bodies diminishes resulting in the loss of firmness and elasticity, and the appearance of wrinkles. Herbalife SKIN® Collagen Beauty Booster nourishes the skin from within and provides the nutrients to maintain a youthful and radiant skin. </p>
@@ -358,7 +371,7 @@ if($_POST["Continue"]){
                             </figcaption>
                         </figure>
                         <figure class="figure">
-                            <p><img src="../images/1.png" alt=""></p>
+                            <p><img src="../../images/1.png" alt=""></p>
                             <div class="figure__overlay bg-secondary-3"></div>
                             <figcaption class="figure__body">
                                 <h3>Formulated with Verisol®* collagen which has been tested to show support of skin elasticity and the reduction of fine wrinkles.† </h3>
@@ -382,7 +395,7 @@ if($_POST["Continue"]){
 
                         <!--Figure-->
                         <figure class="figure">
-                            <p><img src="../images/2.png" alt=""></p>
+                            <p><img src="../../images/2.png" alt=""></p>
 
                             <div class="figure__overlay bg-primary"></div>
                             <figcaption class="figure__body">
@@ -397,7 +410,7 @@ if($_POST["Continue"]){
                             <div class="col-sm-6 col-md-12">
                                 <!--Figure-->
                                 <figure class="figure">
-                                    <p><img src="../images/3.png" alt=""></p>
+                                    <p><img src="../../images/3.png" alt=""></p>
 
                                     <div class="figure__overlay bg-secondary-2"></div>
                                     <figcaption class="figure__body">
@@ -409,7 +422,7 @@ if($_POST["Continue"]){
                             <div class="col-sm-6 col-md-12">
                                 <!--Figure-->
                                 <figure class="figure">
-                                    <p><img src="../images/4.png" alt=""></p>
+                                    <p><img src="../../images/4.png" alt=""></p>
 
                                     <div class="figure__overlay bg-secondary-1"></div>
                                     <figcaption class="figure__body">
@@ -424,6 +437,13 @@ if($_POST["Continue"]){
             </div>
         </section>
         <!-- END benefits-->
+
+        <br><br>
+        <center>
+          <div class="mfControls btn-group text-center text-md-center">
+              <a href="#goform" class="page-scroll btn btn-md btn-default">Fill out the contact form</a>     
+          </div>
+        </center>
 
         <!-- results -->
         <section class="well well-md well--inset-1 well--inset-2 text-md-left">
@@ -441,7 +461,7 @@ if($_POST["Continue"]){
                         <div class="owl-stage-outer"><div style="transform: translate3d(-1340px, 0px, 0px); transition: all 0s ease 0s; width: 4690px;" class="owl-stage"><div style="width: 670px; margin-right: 0px;" class="owl-item cloned">-->
                         <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen2.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen2.jpg" alt="" height="310" width="310"></div>
                                      <div class="box__body ">
                                        <q>Women aged 45 and older can generally expect comparable improvement in appearance of wrinkles by using the Herbalife® product as directed, administering at least 2.5 g daily of the Verisol® branded ingredient over a period of at least 4 weeks. Based on a study of 110 women, consuming 2.5 g of Verisol® ingredient in neutral composiIon daily for 4 and 8 weeks. *BioacIve Collagen PepIdes® is a registered trademark of GELITA AG.
                                         <br>
@@ -520,7 +540,7 @@ if($_POST["Continue"]){
                 <div class="row offset-2">
                     <div class="col-md-9">
                         <div class="rd-google-map">
-                            <img src="../images/page-1_img01-.jpg">
+                            <img src="../../images/page-1_img01-.jpg">
                         </div>
                     </div>
                 </div>
@@ -558,7 +578,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                           <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen3.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen3.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -566,7 +586,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                         <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen4.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen4.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -576,7 +596,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                           <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen5.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen5.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -584,7 +604,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                         <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen6.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen6.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -594,7 +614,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                           <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen7.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen7.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -602,7 +622,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                         <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen8.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen8.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -612,7 +632,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                           <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen9.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen9.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -620,7 +640,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                         <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen10.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen10.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -630,8 +650,8 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                           <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen11.jpg" alt="" height="310" width="310">
-                                    <img  src="../images/collagen14.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen11.jpg" alt="" height="310" width="310">
+                                    <img  src="../../images/collagen14.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -639,7 +659,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                         <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen12.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen12.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -649,7 +669,7 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                           <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen13.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen13.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -657,17 +677,17 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                         <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen15.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen15.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
                 </div>
-
+<!--
                 <div class="row">
                     <div class="col-md-6">
                           <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen17.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen17.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
@@ -675,11 +695,11 @@ if($_POST["Continue"]){
                     <div class="col-md-6">
                         <blockquote class="quote">
                                 <div class="box-md">
-                                    <div class="box__left box__middle"><img  src="../images/collagen16.jpg" alt="" height="310" width="310"></div>
+                                    <div class="box__left box__middle"><img  src="../../images/collagen16.jpg" alt="" height="310" width="310"></div>
                                 </div>
                         </blockquote>
                     </div>
-                </div>
+                </div>-->
 
 
             </div>
@@ -687,15 +707,16 @@ if($_POST["Continue"]){
         </section>
         <!-- END results-->
 
+        <center>
+          <div class="mfControls btn-group text-center text-md-center">
+              <a href="#goform" class="page-scroll btn btn-md btn-default">Fill out the contact form</a>     
+          </div>
+        </center>
+        <br><br><br>
+
 
     </main>
-    <!--========================================================
-                              FOOTER
-    ==========================================================-->
-    <footer class="page-footer">
 
-
-    </footer>
 </div>
 </html>
 ';
@@ -807,30 +828,23 @@ $(document).ready(function(){
 });
 </script>
 
-
 <?php 
-
 if ($tipo_usu == "Administrador") {
-
  ?>
 
 
 <div class="container">
     <div class="row">
         <form action="createCollagen2.php" method="POST">
-            <!--<h3>Create Web 3daytrial Challenge</h3>-->
-            <h3>Creación del WebSite Reto del Paquete de 3 días</h3>
+            <h3>Create Web Collagen</h3>
 <br>
           <div class="form-group col-xs-6">
-          
-          <!--<label for="name">Select a Coach to see your list</label>-->
-          <label for="name">Selecione un Entrenador Asociado</label>
+
+          <label for="name">Select a Coach to see your list</label>
             <div class="inner-addon left-addon">
-              <?php
-              ?>
 
               <select name="coach" id="coach" class="form-control" required>
-                <option value="">>-----------------Seleccionar Entrenador--------------<</option>
+                <option value="">>-----------------Select a Coach--------------<</option>
                   <?php
                   $result = $conexion->query("SELECT * FROM coach");
                   if ($result->num_rows > 0) {
@@ -844,23 +858,16 @@ if ($tipo_usu == "Administrador") {
             </div>
 
            
-            <div class="inner-addon left-addon" id="coach_leads">            </div>
+            <label for="name">Select Coach Leads</label>
+            <div class="inner-addon left-addon">
+                <select name="id_coach_lead" id="coach_leads" class="form-control"></select>
+            </div>
 
-
-            <!--<label for="folder">Folder name</label>-->
-            <label for="folder">Nombre de Carpeta a crear</label>
+            <label for="folder">Folder name</label>
             <div class="inner-addon left-addon">
               <i class="glyphicon glyphicon-folder-open"></i>
               <input type="text" class="form-control" placeholder="Example: luismarin"  id="folder" name="folder" required/>
             </div>
-
-            <!--<label for="">Create web on:</label>--
-            <label for="">Crear website en:</label>
-            <div class="inner-addon left-addon">
-            <input type="checkbox" name="web[]" value="USA"/> Estados Unidos <br/>
-            <input type="checkbox" name="web[]" value="Colombia"/> Colombia <br/>
-            <!--<input type="checkbox" name="web[]" value="Venezuela"/> Venezuela <br/>
-            </div>-->
 
             <input type="submit" class="btn btn-success" value="Create  >">
                 
@@ -872,32 +879,28 @@ if ($tipo_usu == "Administrador") {
 </div>
 
 <?php 
-
 } elseif ($tipo_usu == "Lider") {
-
   ?>
 
-
-<div class="container">
+  <div class="container">
     <div class="row">
         <form action="createCollagen2.php" method="POST">
-             <!--<h3>Create Web 3daytrial Challenge</h3>-->
-            <h3>Creación del WebSite Reto del Paquete de 3 días</h3>
+            <h3>Create Web Collagen</h3>
 <br>
           <div class="form-group col-xs-6">
-          <!--<label for="name">Select a Coach to see your list</label>-->
+
           <label for="name">Entrenador :</label>
             <div class="inner-addon left-addon">
             <?php 
-              $user2 = $conexion->query("SELECT * FROM coachleads WHERE id = ".$id_name);
+              $user2 = $conexion->query("SELECT * FROM coach WHERE id = ".$id_name);
               $row2 = $user2->fetch_assoc();
               $name_user = $row2['name'];
-
               echo $name_user;
-
+              echo '<input type="hidden" class="form-control"  name="id_coach" id="coach" value="'.$id_name.'" readonly/>';
+            
             echo "</div>";
 
-
+           
             $result = $conexion->query("SELECT * FROM coachleads WHERE id_coach = ".$id_name);
             if ($result->num_rows > 0) {
               echo '<label for="name">Select Coach Leads</label>
@@ -907,35 +910,23 @@ if ($tipo_usu == "Administrador") {
                     echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
                 }
                 echo "</select>";
-
-
-            }else {
-              echo 'Register a new coach Leads for continues<br>
-                  <a href="../cpanel/new-coach-leads.php" class="btn btn-success">Create  ></a>';
-              
-            }
-            ?>
-
-
-            <!--<label for="folder">Folder name</label>-->
-            <label for="folder">Nombre de Carpeta a crear</label>
+              ?>
+            <label for="folder">Folder name</label>
             <div class="inner-addon left-addon">
               <i class="glyphicon glyphicon-folder-open"></i>
               <input type="text" class="form-control" placeholder="Example: luismarin"  id="folder" name="folder" required/>
             </div>
 
-            <!--<label for="">Create web on:</label>--
-            <label for="">Crear website en:</label>
-            <div class="inner-addon left-addon">
-            <input type="checkbox" name="web[]" value="USA"/> Estados Unidos <br/>
-            <input type="checkbox" name="web[]" value="Colombia"/> Colombia <br/>
-            <!--<input type="checkbox" name="web[]" value="Venezuela"/> Venezuela <br/>
-            </div>-->
-
             <input type="submit" class="btn btn-success" value="Create  >">
                 
           </div>
-            
+             <?php 
+
+            }else {
+              echo 'Register a new coach Leads for continues<br>
+                  <a href="../panel/new-coach-leads.php" class="btn btn-success">Create  ></a>';
+              
+            }  ?>
 
         </form>
     </div>
@@ -943,52 +934,70 @@ if ($tipo_usu == "Administrador") {
 
 
 
-
-
 <?php 
-  } elseif ($tipo_usu == "Usuario") {
+
+} elseif ($tipo_usu == "Usuario") {
 
   ?>
 
 
+
+
+
 <div class="container">
     <div class="row">
-        <form action="createCollagen2.php" method="POST">
-             <!--<h3>Create Web 3daytrial Challenge</h3>-->
-            <h3>Creación del WebSite Reto del Paquete de 3 días</h3>
+        <form action="createCollagen.php" method="POST">
+            <!--<h3>Create Web Collagen</h3>-->
+            <h3>Crear Capturadora Collageno</h3>
 <br>
-          <div class="form-group col-xs-6">
-          <!--<label for="name">Select a Coach to see your list</label>-->
+          <div class="form-group col-xs-8">
+
           <label for="name">Entrenador :</label>
             <div class="inner-addon left-addon">
             <?php 
               $user2 = $conexion->query("SELECT * FROM coachleads WHERE id = ".$id_name);
               $row2 = $user2->fetch_assoc();
               $name_user = $row2['name'];
-
               echo $name_user;
-              echo '<input type="hidden" class="form-control"  name="id_coach_lead" id="coach_lead" value="'.$id_name.'" readonly/>';
-
-              echo "</div>";
-
+              echo '<input type="hidden" class="form-control"  name="id_coach_lead" id="coach" value="'.$id_name.'" readonly/>';
             ?>
+            </div>
 
 
-            <!--<label for="folder">Folder name</label>-->
-            <label for="folder">Nombre de Carpeta a crear</label>
+            <label for="folder">Nombre Carpeta Capturadora</label>
             <div class="inner-addon left-addon">
               <i class="glyphicon glyphicon-folder-open"></i>
               <input type="text" class="form-control" placeholder="Example: luismarin"  id="folder" name="folder" required/>
             </div>
 
-            <!--<label for="">Create web on:</label>--
-            <label for="">Crear website en:</label>
-            <div class="inner-addon left-addon">
-            <input type="checkbox" name="web[]" value="USA"/> Estados Unidos <br/>
-            <input type="checkbox" name="web[]" value="Colombia"/> Colombia <br/>
-            <!--<input type="checkbox" name="web[]" value="Venezuela"/> Venezuela <br/>--
-            </div>-->
-
+            <h3 align="center">Change Video from Capturing</h3>
+              <br>
+              <h4>Video para Capturadoras </h4>
+              <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video1" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video1" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo1" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+              <br><br><br>
+            <div class="row">
+              <h3 align="center">How to change a Video</h3>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">1</font></span><br><br><br></div>
+                Select a ID from video url Vimeo or Youtube https://vimeo.com/<strong><i>182629472</i></strong> or https://www.youtube.com/watch?v=<strong><i>UUqzPRClA4o</i></strong>
+              </div>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">2</font></span><br><br><br></div>
+                Select a Origin Video, Insert de ID in text form, if is Vimeo is: <strong><i>182629472</i></strong>, if is YouTube is: <strong><i>UUqzPRClA4o</i></strong>
+              </div>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">3</font></span><br><br><br></div>
+                Press the Button "Change Video" and update you Capturing for see the new Video
+              </div>
+            </div>
+            <br><br>
             <input type="submit" class="btn btn-success" value="Create  >">
                 
           </div>
@@ -998,9 +1007,9 @@ if ($tipo_usu == "Administrador") {
     </div>
 </div>
 
-
 <?php 
   }
+
 
 }
 

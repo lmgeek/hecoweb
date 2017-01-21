@@ -22,6 +22,7 @@ include("../conetion.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Pages</title>
   <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/style2.css" rel="stylesheet">
 <script language="JavaScript"> 
 	function confirmar ( mensaje ) { 
 		return confirm( mensaje ); 
@@ -31,7 +32,7 @@ include("../conetion.php");
 
       <br><br>
       <h3 align="center"><strong><i>Entrenador Asociado:</i></strong> <?php echo $coach; ?></h3><br>
-	<table width="100%" class="table-hover" style="background: #fff;">
+	<table width="100%" class="table-hover" style="background: #fff;border-radius: 5px;">
 	        <tr align="center">
 	          <td><strong>ID Entrenador</strong></td>
 	          <td><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<strong>Nombre</strong></td>

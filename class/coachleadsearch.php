@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
 
 }else {
 	echo 'Register a new coach Leads for continues<br>
-			<a href="../cpanel/new-coach-leads.php" class="btn btn-success">Create  ></a>';
+			<a href="../panel/new-coach-leads.php" class="btn btn-success">Create  ></a>';
 	
 }
 ?>

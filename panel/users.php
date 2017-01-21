@@ -57,25 +57,9 @@ body {
 
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script language="javascript">
-$(document).ready(function(){
-   $("#category").change(function () {
-           $("#category option:selected").each(function () {
-            id = $(this).val();
-            $.post("subcategorias.php", { id: id }, function(data){
-                $("#subcategory").html(data);
-            });            
-        });
-   })
-});
-</script>
-
-
-
-
 
 <?php 
-if ($tipo_usu == "Administrator") {
+if ($tipo_usu == "Administrador") {
    ?>
 
    <script language="javascript">
@@ -151,7 +135,7 @@ $(document).ready(function(){
                 <td><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<strong>Nombre</strong></td>
                 <td><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;<strong>Teléfono</strong></td>
                 <td><i class="glyphicon glyphicon-envelope"></i>&nbsp;&nbsp;<strong>Email</strong></td>
-                <td>&nbsp;</td>
+                <td><i class="glyphicon glyphicon-hand-down"></i>&nbsp;&nbsp;<strong>Acción</strong></td>
               </tr>
               <?php 
         while ($row = $result->fetch_assoc()) {    
@@ -160,9 +144,10 @@ $(document).ready(function(){
             echo '<tr align="center">
                   <td>'.$row['id'].'</td>
                   <td>'.$row['name'].'</td>
-                  <td>'.$row['phone'].'</td>
+                  <td>'.$row['phone'].'<br>'.$row['phone2'].'<br>'.$row['phone3'].'</td>
                   <td>'.$row['email'].'</td>
-                  <td><a href="downlinewebs.php?downline='.$row['id'].'" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ver Websites</a></td>
+                  <td><a href="../class/editdownline.php?id='.$row['id'].'" class="btn btn-success"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Editar</a>&nbsp;
+                  <a href="downlinewebs.php?downline='.$row['id'].'" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ver Websites</a></td>
                 </tr>';
 
         }
@@ -212,7 +197,7 @@ $(document).ready(function(){
                 <td><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<strong>Nombre</strong></td>
                 <td><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;<strong>Teléfono</strong></td>
                 <td><i class="glyphicon glyphicon-envelope"></i>&nbsp;&nbsp;<strong>Email</strong></td>
-                <td>&nbsp;</td>
+                <td><i class="glyphicon glyphicon-hand-down"></i>&nbsp;&nbsp;<strong>Acción</strong></td>
               </tr>
               <?php 
         while ($row = $result->fetch_assoc()) {    
@@ -221,9 +206,10 @@ $(document).ready(function(){
             echo '<tr align="center">
                   <td>'.$row['id'].'</td>
                   <td>'.$row['name'].'</td>
-                  <td>'.$row['phone'].'</td>
+                  <td>'.$row['phone'].'<br>'.$row['phone2'].'<br>'.$row['phone3'].'</td>
                   <td>'.$row['email'].'</td>
-                  <td><a href="downlinewebs.php?id='.$row['id'].'" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ver Websites</a></td>
+                  <td><a href="../class/editdownline.php?id='.$row['id'].'" class="btn btn-success"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Editar</a>&nbsp;
+                  <a href="downlinewebs.php?downline='.$row['id'].'" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Ver Websites</a></td>
                 </tr>';
 
         }

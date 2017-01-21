@@ -14,7 +14,7 @@
                 </script>";
                 exit;
             }
-
+    
 include("../conetion.php");
 
 /******************************************************************************************************/
@@ -43,6 +43,39 @@ if (isset($_POST['id_coach_lead'])  && isset($_POST['folder']) &&
     }else {
         echo "no data";}
 
+          //VIDEO ESPAÑOL USA
+      if (isset($_POST['idvideo1']) && isset($_POST['idvideo1']) && 
+          isset($_POST['video1']) && isset($_POST['video1'])) {
+        $idvideo1 = $_POST['idvideo1'];
+        $video1 = $_POST['video1'];
+      }else{
+        $idvideo1 = '181632470';
+        $video1 = 'v-';
+      }
+
+        //VIDEO INGLES USA
+      if (isset($_POST['idvideo2']) && isset($_POST['idvideo2']) && 
+          isset($_POST['video2']) && isset($_POST['video2'])) {
+        $idvideo2 = $_POST['idvideo2'];
+        $video2 = $_POST['video2'];
+      }else{
+        $idvideo2 = '181627976';
+        $video2 = 'v-';
+      }
+
+      //VIDEO ESPAÑOL RD CO
+      if (isset($_POST['idvideo3']) && isset($_POST['idvideo3']) && 
+          isset($_POST['video3']) && isset($_POST['video3'])) {
+        $idvideo3 = $_POST['idvideo3'];
+        $video3 = $_POST['video3'];
+      }else{
+        $idvideo3 = '182629578';
+        $video3 = 'v-';
+      }
+
+
+
+
        if (is_array($_POST['web'])) {
         $selected = '';
         $num_web = count($_POST['web']);
@@ -53,16 +86,14 @@ if (isset($_POST['id_coach_lead'])  && isset($_POST['folder']) &&
             else
                 $selected .= $value.'.';
             $current++;
-
-
 /******************************************************************************************************/
-/**************************     CREA EL CLON DE 3 DAY TRIAL PACK   ******************************/
+/**************************      CREA EL CLON DE KA WEB DE Colombia      ******************************/
 /******************************************************************************************************/
-
-$mensaje = '
+    
+    $mensaje = '
 <?php
-  $conexion = new mysqli("localhost", "thrdaytr_oportun", "oportunidadhbl", "thrdaytr_promocionhbl");
-  $search = $conexion->query(\'SELECT * FROM coach WHERE name ="'.$id_coach_lead.'"\');
+  $conexion = new mysqli("localhost", "thrdaytr_webapp", "pRf_&lue#LU7", "thrdaytr_planhbl");
+  $search = $conexion->query(\'SELECT * FROM coachleads WHERE id ="'.$id_coach_lead.'"\');
   if ($search->num_rows > 0) {
   $row = $search->fetch_assoc();
   $mail_coach = $row["email"];
@@ -71,21 +102,20 @@ $mensaje = '
   $id_coach="";
 }
 ?>
-
     <!DOCTYPE HTML>
 <html>
 <head>
+<script src="http://planhbl.com/hecoweb/panel/visitas.php"></script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>3Day Trial Pack | Home</title>
   <link rel="icon" href="../assets/images/favicon.png">
   <!-- en html5 no necesitas indicar el cierre de la etiqueta 
 <meta http-equiv="refresh" content="3">
   
-
   <!--Script para ver el dispositivo -->
   <script type="text/javascript">
     var device = navigator.userAgent
-
     if (device.match(/Iphone/i) ||
         device.match(/Ipod/i)||
         device.match(/Android/i)||
@@ -107,25 +137,21 @@ $mensaje = '
         device.match(/HTC/i))
     {
     window.location = "movil/";
-
     }
     else
     {
       
     }
   </script>
-
   <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches(".dropbtn")) {
-
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -137,7 +163,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
 <style>
 .dropbtn {
     background-color: #4CAF50;
@@ -147,18 +172,15 @@ window.onclick = function(event) {
     border: none;
     cursor: pointer;
 }
-
 .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
 }
-
 .dropdown {
     float: right;
     position: relative;
     display: inline-block;
     
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -168,79 +190,55 @@ window.onclick = function(event) {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     right: 0;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown a:hover {background-color: #f1f1f1}
-
 .show {display:block;}
 </style>
-
 <body class="magic">
-
 <!--Start Home Page-->
-
 <!--Top-Script-->
 <div class="black-stip">
   <div class="container">
-    <strong>Distribuidor Independiente Herbalife: ' .  $name . '</strong>
-
+    <strong>Distribuidor Independiente Herbalife: <b>' .  $name . '</b></strong>
     
   </div>
 </div>
-
 <img src="../assets/images/banner-es.jpg" width="100%" height="auto">
-
-
 <!-- Video Wrap & Form -->
 <div class="container">
   <div class="row">
     <div class="col-md-6" style="margin-top:60px;">
-
-      <span class="video-link" data-video-id="v-182629578">
+      <span class="video-link" data-video-id="'.$video3.$idvideo3.'">
         <img src="../assets/images/video-fake1.jpg" width="100%" height="auto">
       </span>
-
-      <span class="video-link" data-video-id="v-182629578" data-video-width="1280px" data-video-height="720px" data-video-autoplay="1" ></span>
-
-
+      <span class="video-link" data-video-id="'.$video3.$idvideo3.'" data-video-width="1280px" data-video-height="720px" data-video-autoplay="1" ></span>
     </div>
-
     <?php set_time_limit(0);
-
-
 if($_POST["Continue"]){
-
-
   //EMAIL DEL DESTINATARIO
   $FromName = $_POST["firstname"]." ".$_POST["lastname"];
   $FromMail = $mail_coach;
   $Phone = $_POST["phone"];
   $firstname = $_POST["firstname"];
   $lastname = $_POST["lastname"];
-
-
+  $meta = $_POST["custom_1"];
   //ASUNTO DEL EMAIL
-  $asunto = "3daytrialonline";
-
-
+  $asunto = "3daytrial Captura";
   //MENSAJE DEL EMAIL
   $mensaje = "
   <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
 <html xmlns=\'http://www.w3.org/1999/xhtml\'>
  <head>
 <meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
+<title> Email</title>
 <meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
 </head>
 <body style=\'margin: 20px; padding: 0;\'>
-
-
 <table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
  <tr>
    <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
@@ -254,6 +252,7 @@ if($_POST["Continue"]){
     <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
      Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
     </td>
+    <td>Meta: " . $meta . "</td>
    </tr>
    <tr>
      <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
@@ -273,8 +272,7 @@ if($_POST["Continue"]){
   <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
       <tr align=\'center\' >
         <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          &reg; Herbalife<br/>
-          
+                    
           <b><i>IMPORTANT NOTE:</i> No responda a este mensaje, si este mensaje llega a usted PARA incorrectos y considerar el SPAM,<BR>
           Contacta con Soporte Técnico: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
          </td>
@@ -283,8 +281,6 @@ if($_POST["Continue"]){
 </td>
  </tr>
 </table>
-
-
 </body>
 </html>";
   $mensaje = stripslashes($mensaje);
@@ -297,21 +293,12 @@ if($_POST["Continue"]){
   $headers .= "X-Priority: 1\n";
   $headers .= "X-MSMail-Priority: High\n";
   $headers .= "X-Mailer: Widgets.com Server";
-
-
   //ARQUIVO CON LOS EMAILS
-
   $arquivo = $_POST["lista"];
-
-
   //GENERANDO UN ARRAY CON A LISTA
-
   $file = explode("\n", $arquivo);
-
   $i = 1;
-
 }
-
  ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
@@ -328,7 +315,7 @@ if($_POST["Continue"]){
                   echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
                   <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
                   $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3dt\')";
+                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
                   if ($conexion->query($insert) == TRUE) {
                     echo" <script>alert(\'Message Send Successfully!\');
                     </script>";
@@ -378,12 +365,7 @@ if($_POST["Continue"]){
     </dic>
   </div>
 </div>
-
-
-
-
 <!--Bonus Part-->
-
 <section class="bonus">
   <div class="container">
     <span class="main-heading wow fadeInDown">
@@ -414,7 +396,6 @@ if($_POST["Continue"]){
           </div>
     </figure>
       </div>
-
       <div class="grid2 cs-style-2">
         <figure>
           <div class="mobile-bonus visible-xs">
@@ -437,7 +418,6 @@ if($_POST["Continue"]){
           </div>
         </figure>
       </div>
-
       <div class="grid3 cs-style-3">
         <figure>
           <div class="mobile-bonus visible-xs">
@@ -461,9 +441,7 @@ if($_POST["Continue"]){
         </figure>
         </div>
       </div>
-
 </section>
-
 <!--Trial Pack-->
 <section class="pack-bg"><div class="container">
     <div class="pack-wrap wow fadeInDown">
@@ -473,7 +451,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
 <!--Herbalife Products-->
 <section class="herbalife-product">
   <div class="container">
@@ -515,21 +492,17 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
-
-
 <!--About Author-->
 <section class="about-author">
   <div class="container">
     <div class="coach-info wow fadeInDown">
       <div class="row">
-
        <div class="col-md-12 col-sm-7">
           <div class="author-info-content text-center">
             <h4>' . $name . '</h4>
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
-              </i>' . $phone . '</a>
+              </i><font size"5em">' . $phone . '</a></font>
             <h4>Seré su Distribuidor Nutrición para los próximos 3 días ...</h4>
             <p>Cuando usted toma mi Desafío salud de pruebas de 3 días, le ayudaré a desarrollar un plan
               de nutrición personal! Sus objetivos son únicos y su plan de nutrición debe ser así! Yo
@@ -620,9 +593,6 @@ if($_POST["Continue"]){
       </div>
     </div>
 </section>
-
-
-
 <!--Footer
 <footer>
   <div class="container">
@@ -632,17 +602,12 @@ if($_POST["Continue"]){
   </div>
 </footer>
 <!--End Home Page-->
-
-
-
 <!--Stylesheet-->
-
   <link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
   <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../assets/css/responsiveslides.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!--Stylesheet-->
-
   <!--JavaScript-->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="../assets/js/video.js"></script>
@@ -657,15 +622,10 @@ if($_POST["Continue"]){
   });
   });
   </script>
-
-
-
-
 <style type="text/css">
     .video-target {
     cursor: pointer;
 }
-
 .video-wrapper {
     display: none;
     position: fixed;
@@ -678,13 +638,11 @@ if($_POST["Continue"]){
     background: #000;
     z-index: 21000;
 }
-
 .video-frame {
     position: absolute;
     top: 50%;
     left: 50%;
 }
-
 .video-close{
     float:right;
     margin-top:-30px;
@@ -700,21 +658,17 @@ if($_POST["Continue"]){
     line-height: 0px;
     padding: 11px 3px;
 }
-
 .video-close:before {
     content: "×";
 }
 </style>
-
 </body>
 </html>
-
 ';
-
 $mensaje2 = '
 <?php
-  $conexion = new mysqli("localhost", "thrdaytr_oportun", "oportunidadhbl", "thrdaytr_promocionhbl");
-  $search = $conexion->query(\'SELECT * FROM coach WHERE name ="'.$id_coach_lead.'"\');
+  $conexion = new mysqli("localhost", "thrdaytr_webapp", "pRf_&lue#LU7", "thrdaytr_planhbl");
+  $search = $conexion->query(\'SELECT * FROM coachleads WHERE id ="'.$id_coach_lead.'"\');
   if ($search->num_rows > 0) {
   $row = $search->fetch_assoc();
   $mail_coach = $row["email"];
@@ -723,10 +677,11 @@ $mensaje2 = '
   $id_coach="";
 }
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
+<script src="http://planhbl.com/hecoweb/panel/visitas.php"></script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>3Day Trial Pack | Home</title>
   <!--Stylesheet-->
@@ -736,12 +691,9 @@ $mensaje2 = '
   <link rel="stylesheet" href="../../assets/css/responsiveslides.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!--Stylesheet-->
-
-
   <!--Script para ver el dispositivo -->
   <script type="text/javascript">
     var device = navigator.userAgent
-
     if (device.match(/Iphone/i) ||
         device.match(/Ipod/i)||
         device.match(/Android/i)||
@@ -762,16 +714,12 @@ $mensaje2 = '
         device.match(/symbian/i)||
         device.match(/HTC/i))
     {
-
     }
     else
     {
       window.location = "../";
     }
   </script>
-
-
-
 <style type="text/css">
     .video-responsive {
     position: relative;
@@ -786,18 +734,15 @@ $mensaje2 = '
     height: 100%;
 }
 </style>
-
 <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches(".dropbtn")) {
-
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -809,7 +754,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
 <style>
 .dropbtn {
     background-color: #4CAF50;
@@ -819,18 +763,15 @@ window.onclick = function(event) {
     border: none;
     cursor: pointer;
 }
-
 .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
 }
-
 .dropdown {
     float: right;
     position: relative;
     display: inline-block;
     
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -840,86 +781,54 @@ window.onclick = function(event) {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     right: 0;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown a:hover {background-color: #f1f1f1}
-
 .show {display:block;}
 </style>
-
 </head>
-
 <body class="magic">
-
 <!--Start Home Page-->
-
 <!--Top-Script-->
 <div class="black-stip">
   <div class="container">
-    <strong>Distribuidor Independiente Herbalife: ' . $name . '</strong>
-
+    <strong>Distribuidor Independiente Herbalife: <b>' . $name . '</b></strong>
      </div>
 </div>
-
 <img src="../../assets/images/banner-es.jpg" width="100%" height="auto">
-
-
 <!-- Video Wrap & Form -->
 <div class="container">
   <div class="row">
     <div class="col-md-6" style="margin-top:10px;">
-
-      <!--
-      <span class="video-link" data-video-id="y-SS7IWP5TFEs">
-        <img src="../../assets/images/video-fake1.jpg" width="100%" height="auto">
-      </span>
-      -->
-
       <div class="video-responsive">
-        <iframe src="https://player.vimeo.com/video/182629578" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/'.$idvideo3.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
-
-      <!--<span class="video-link" data-video-id="y-SS7IWP5TFEs" data-video-width="640px" data-video-height="390px" data-video-autoplay="1" ></span>-->
-
-
     </div>
-
     <?php set_time_limit(0);
-
-
 if($_POST["Continue"]){
-
-
   //EMAIL DEL DESTINATARIO
   $FromName = $_POST["firstname"]." ".$_POST["lastname"];
   $FromMail = $mail_coach;
   $Phone = $_POST["phone"];
   $firstname = $_POST["firstname"];
   $lastname = $_POST["lastname"];
-
-
+  $meta = $_POST["custom_1"];
   //ASUNTO DEL EMAIL
-  $asunto = "3daytrialonline";
-
-
+  $asunto = "3daytrial Captura";
   //MENSAJE DEL EMAIL
   $mensaje = "
   <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
 <html xmlns=\'http://www.w3.org/1999/xhtml\'>
  <head>
 <meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
+<title> Email</title>
 <meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
 </head>
 <body style=\'margin: 20px; padding: 0;\'>
-
-
 <table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
  <tr>
    <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
@@ -933,6 +842,7 @@ if($_POST["Continue"]){
     <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
      Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
     </td>
+    <td>Meta: " . $meta . "</td>
    </tr>
    <tr>
      <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
@@ -952,7 +862,6 @@ if($_POST["Continue"]){
   <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
       <tr align=\'center\' >
         <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          &reg; Herbalife<br/>
           
           <b><i>IMPORTANT NOTE:</i> No responda a este mensaje, si este mensaje llega a usted PARA incorrectos y considerar el SPAM,<BR>
           Contacta con Soporte Técnico: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
@@ -962,8 +871,6 @@ if($_POST["Continue"]){
 </td>
  </tr>
 </table>
-
-
 </body>
 </html>";
   $mensaje = stripslashes($mensaje);
@@ -976,21 +883,12 @@ if($_POST["Continue"]){
   $headers .= "X-Priority: 1\n";
   $headers .= "X-MSMail-Priority: High\n";
   $headers .= "X-Mailer: Widgets.com Server";
-
-
   //ARQUIVO CON LOS EMAILS
-
   $arquivo = $_POST["lista"];
-
-
   //GENERANDO UN ARRAY CON A LISTA
-
   $file = explode("\n", $arquivo);
-
   $i = 1;
-
 }
-
  ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
@@ -1007,7 +905,7 @@ if($_POST["Continue"]){
                   echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
                   <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
                   $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3dt\')";
+                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
                   if ($conexion->query($insert) == TRUE) {
                     echo" <script>alert(\'Message Send Successfully!\');
                     </script>";
@@ -1057,12 +955,7 @@ if($_POST["Continue"]){
     </dic>
   </div>
 </div>
-
-
-
-
 <!--Bonus Part-->
-
 <section class="bonus">
   <div class="container">
     <span class="main-heading wow fadeInDown">
@@ -1088,9 +981,6 @@ if($_POST["Continue"]){
                   comer los mismos alimentos para el resto de su vida!</p>
               </div>
           </div>
-
-
-
           <div class="mobile-bonus visible-xs">
             <img src="../../assets/images/bonus-2m.jpg" class="img-responsive">
           </div>
@@ -1107,7 +997,6 @@ if($_POST["Continue"]){
                   todo el país, o hacer los entrenamientos en casa. ¡Es tu elección!</p>
               </div>
           </div>
-
           <div class="mobile-bonus visible-xs">
             <img src="../../assets/images/bonus-3m.jpg" class="img-responsive">
           </div>
@@ -1125,9 +1014,7 @@ if($_POST["Continue"]){
               </div>
           </div>
       </div>
-
 </section>
-
 <!--Trial Pack-->
 <section class="pack-bg"><div class="container">
     <div class="pack-wrap wow fadeInDown">
@@ -1137,7 +1024,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
 <!--Herbalife Products-->
 <section class="herbalife-product">
   <div class="container">
@@ -1179,8 +1065,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
-
 <!--About Author-->
 <section class="about-author">
   <div class="container">
@@ -1191,7 +1075,7 @@ if($_POST["Continue"]){
             <h4>' . $name . '</h4>
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
-              </i>' . $phone . '</a>
+              </i><font size"5em">' . $phone . '</a></font>
             <h4>Seré su Distribuidor Nutrición para los próximos 3 días ...</h4>
             <p>Cuando usted toma mi Desafío salud de pruebas de 3 días, le ayudaré a desarrollar un plan
               de nutrición personal! Sus objetivos son únicos y su plan de nutrición debe ser así! Yo
@@ -1283,9 +1167,6 @@ if($_POST["Continue"]){
       </div>
     </div>
 </section>
-
-
-
 <!--Footer
 <footer>
   <div class="container">
@@ -1302,19 +1183,18 @@ if($_POST["Continue"]){
 
 
 
-
-
 /******************************************************************************************************/
-/**************************         CREA EL CLON DE KA WEB DE USA        ******************************/
+/**************************         CREA EL CLON DE LA WEB DE USA        ******************************/
 /******************************************************************************************************/
+
 
 
 
 
 $message1 = '
 <?php
-  $conexion = new mysqli("localhost", "thrdaytr_oportun", "oportunidadhbl", "thrdaytr_promocionhbl");
-  $search = $conexion->query(\'SELECT * FROM coach WHERE name ="'.$id_coach_lead.'"\');
+  $conexion = new mysqli("localhost", "thrdaytr_webapp", "pRf_&lue#LU7", "thrdaytr_planhbl");
+  $search = $conexion->query(\'SELECT * FROM coachleads WHERE id ="'.$id_coach_lead.'"\');
   if ($search->num_rows > 0) {
   $row = $search->fetch_assoc();
   $mail_coach = $row["email"];
@@ -1323,21 +1203,20 @@ $message1 = '
   $id_coach="";
 }
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
+<script src="http://planhbl.com/hecoweb/panel/visitas.php"></script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>3Day Trial Pack | Home</title>
   <link rel="icon" href="../../assets/images/favicon.png">
   <!-- en html5 no necesitas indicar el cierre de la etiqueta 
 <meta http-equiv="refresh" content="3">
   
-
   <!--Script para ver el dispositivo -->
   <script type="text/javascript">
     var device = navigator.userAgent
-
     if (device.match(/Iphone/i) ||
         device.match(/Ipod/i)||
         device.match(/Android/i)||
@@ -1359,25 +1238,21 @@ $message1 = '
         device.match(/HTC/i))
     {
     window.location = "movil/";
-
     }
     else
     {
       
     }
   </script>
-
   <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches(".dropbtn")) {
-
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -1389,7 +1264,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
 <style>
 .dropbtn {
     background-color: #4CAF50;
@@ -1399,18 +1273,15 @@ window.onclick = function(event) {
     border: none;
     cursor: pointer;
 }
-
 .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
 }
-
 .dropdown {
     float: right;
     position: relative;
     display: inline-block;
     
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -1420,84 +1291,61 @@ window.onclick = function(event) {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     right: 0;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown a:hover {background-color: #f1f1f1}
-
 .show {display:block;}
 </style>
-
 <body class="magic">
-
 <!--Start Home Page-->
-
 <!--Top-Script-->
 <div class="black-stip">
   <div class="container">
-    <strong>Distribuidor Independiente Herbalife: ' .  $name . '</strong>
+    <strong>Distribuidor Independiente Herbalife: <b>' .  $name . '</b></strong>
     <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">Lenguaje </button>
       <div id="myDropdown" class="dropdown-content">
-        <a href="../../es"><img src="../../assets/images/band_esp.png"> Spanish</a>
-        <a href="../../en"><img src="../../assets/images/band_eng.png"> English</a>
+        <a href="../es"><img src="../../assets/images/band_esp.png"> Spanish</a>
+        <a href="../en"><img src="../../assets/images/band_eng.png"> English</a>
       </div>
     </div>
-
   </div>
 </div>
-
 <img src="../../assets/images/banner-es.jpg" width="100%" height="auto">
-
-
 <!-- Video Wrap & Form -->
 <div class="container">
   <div class="row">
     <div class="col-md-6" style="margin-top:60px;">
-
-      <span class="video-link" data-video-id="v-181632470">
+      <span class="video-link" data-video-id="'.$video1.$idvideo1.'">
         <img src="../../assets/images/video-fake1.jpg" width="100%" height="auto">
       </span>
-
-      <span class="video-link" data-video-id="v-181632470" data-video-width="1280px" data-video-height="720px" data-video-autoplay="1" ></span>
-
-
+      <span class="video-link" data-video-id="'.$video1.$idvideo1.'" data-video-width="1280px" data-video-height="720px" data-video-autoplay="1" ></span>
     </div>
 <?php set_time_limit(0);
-
-
 if($_POST["Continue"]){
-
-
   //EMAIL DEL DESTINATARIO
   $FromName = $_POST["firstname"]." ".$_POST["lastname"];
   $FromMail = $mail_coach;
   $Phone = $_POST["phone"];
   $firstname = $_POST["firstname"];
   $lastname = $_POST["lastname"];
-
-
+  $meta = $_POST["custom_1"];
   //ASUNTO DEL EMAIL
-  $asunto = "3daytrialonline";
-
-
+  $asunto = "3daytrial Captura";
   //MENSAJE DEL EMAIL
   $mensaje = "
   <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
 <html xmlns=\'http://www.w3.org/1999/xhtml\'>
  <head>
 <meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
+<title> Email</title>
 <meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
 </head>
 <body style=\'margin: 20px; padding: 0;\'>
-
-
 <table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
  <tr>
    <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
@@ -1511,6 +1359,7 @@ if($_POST["Continue"]){
     <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
      Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
     </td>
+    <td>Meta: " . $meta . "</td>
    </tr>
    <tr>
      <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
@@ -1530,7 +1379,6 @@ if($_POST["Continue"]){
   <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
       <tr align=\'center\' >
         <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          &reg; Herbalife<br/>
           
           <b><i>IMPORTANT NOTE:</i> No responda a este mensaje, si este mensaje llega a usted PARA incorrectos y considerar el SPAM,<BR>
           Contacta con Soporte Técnico: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
@@ -1540,8 +1388,6 @@ if($_POST["Continue"]){
 </td>
  </tr>
 </table>
-
-
 </body>
 </html>";
   $mensaje = stripslashes($mensaje);
@@ -1554,21 +1400,12 @@ if($_POST["Continue"]){
   $headers .= "X-Priority: 1\n";
   $headers .= "X-MSMail-Priority: High\n";
   $headers .= "X-Mailer: Widgets.com Server";
-
-
   //ARQUIVO CON LOS EMAILS
-
   $arquivo = $_POST["lista"];
-
-
   //GENERANDO UN ARRAY CON A LISTA
-
   $file = explode("\n", $arquivo);
-
   $i = 1;
-
 }
-
  ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
@@ -1585,7 +1422,7 @@ if($_POST["Continue"]){
                   echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
                   <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
                   $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3dt\')";
+                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
                   if ($conexion->query($insert) == TRUE) {
                     echo" <script>alert(\'Message Send Successfully!\');
                     </script>";
@@ -1635,12 +1472,7 @@ if($_POST["Continue"]){
     </dic>
   </div>
 </div>
-
-
-
-
 <!--Bonus Part-->
-
 <section class="bonus">
   <div class="container">
     <span class="main-heading wow fadeInDown">
@@ -1671,7 +1503,6 @@ if($_POST["Continue"]){
           </div>
     </figure>
       </div>
-
       <div class="grid2 cs-style-2">
         <figure>
           <div class="mobile-bonus visible-xs">
@@ -1694,7 +1525,6 @@ if($_POST["Continue"]){
           </div>
         </figure>
       </div>
-
       <div class="grid3 cs-style-3">
         <figure>
           <div class="mobile-bonus visible-xs">
@@ -1718,9 +1548,7 @@ if($_POST["Continue"]){
         </figure>
         </div>
       </div>
-
 </section>
-
 <!--Trial Pack-->
 <section class="pack-bg"><div class="container">
     <div class="pack-wrap wow fadeInDown">
@@ -1730,7 +1558,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
 <!--Herbalife Products-->
 <section class="herbalife-product">
   <div class="container">
@@ -1772,21 +1599,17 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
-
-
 <!--About Author-->
 <section class="about-author">
   <div class="container">
     <div class="coach-info wow fadeInDown">
       <div class="row">
-
        <div class="col-md-12 col-sm-7">
           <div class="author-info-content text-center">
             <h4>' . $name . '</h4>
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
-              </i>' . $phone . '</a>
+              </i><font size"5em">' . $phone . '</a></font>
             <h4>Seré su Distribuidor Nutrición para los próximos 3 días ...</h4>
             <p>Cuando usted toma mi Desafío salud de pruebas de 3 días, le ayudaré a desarrollar un plan
               de nutrición personal! Sus objetivos son únicos y su plan de nutrición debe ser así! Yo
@@ -1877,9 +1700,6 @@ if($_POST["Continue"]){
       </div>
     </div>
 </section>
-
-
-
 <!--Footer
 <footer>
   <div class="container">
@@ -1889,17 +1709,12 @@ if($_POST["Continue"]){
   </div>
 </footer>
 <!--End Home Page-->
-
-
-
 <!--Stylesheet-->
-
   <link href="../../assets/css/theme.css" rel="stylesheet" type="text/css">
   <link href="../../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../../assets/css/responsiveslides.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!--Stylesheet-->
-
   <!--JavaScript-->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="../../assets/js/video.js"></script>
@@ -1914,15 +1729,10 @@ if($_POST["Continue"]){
   });
   });
   </script>
-
-
-
-
 <style type="text/css">
     .video-target {
     cursor: pointer;
 }
-
 .video-wrapper {
     display: none;
     position: fixed;
@@ -1935,13 +1745,11 @@ if($_POST["Continue"]){
     background: #000;
     z-index: 21000;
 }
-
 .video-frame {
     position: absolute;
     top: 50%;
     left: 50%;
 }
-
 .video-close{
     float:right;
     margin-top:-30px;
@@ -1957,21 +1765,17 @@ if($_POST["Continue"]){
     line-height: 0px;
     padding: 11px 3px;
 }
-
 .video-close:before {
     content: "×";
 }
 </style>
-
 </body>
 </html>
-
 ';
-
 $message2 = '
 <?php
-  $conexion = new mysqli("localhost", "thrdaytr_oportun", "oportunidadhbl", "thrdaytr_promocionhbl");
-  $search = $conexion->query(\'SELECT * FROM coach WHERE name ="'.$id_coach_lead.'"\');
+  $conexion = new mysqli("localhost", "thrdaytr_webapp", "pRf_&lue#LU7", "thrdaytr_planhbl");
+  $search = $conexion->query(\'SELECT * FROM coachleads WHERE id ="'.$id_coach_lead.'"\');
   if ($search->num_rows > 0) {
   $row = $search->fetch_assoc();
   $mail_coach = $row["email"];
@@ -1980,10 +1784,11 @@ $message2 = '
   $id_coach="";
 }
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
+<script src="http://planhbl.com/hecoweb/panel/visitas.php"></script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>3Day Trial Pack | Home</title>
   <!--Stylesheet-->
@@ -1993,12 +1798,9 @@ $message2 = '
   <link rel="stylesheet" href="../../../assets/css/responsiveslides.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!--Stylesheet-->
-
-
   <!--Script para ver el dispositivo -->
   <script type="text/javascript">
     var device = navigator.userAgent
-
     if (device.match(/Iphone/i) ||
         device.match(/Ipod/i)||
         device.match(/Android/i)||
@@ -2019,16 +1821,12 @@ $message2 = '
         device.match(/symbian/i)||
         device.match(/HTC/i))
     {
-
     }
     else
     {
       window.location = "../";
     }
   </script>
-
-
-
 <style type="text/css">
     .video-responsive {
     position: relative;
@@ -2043,18 +1841,15 @@ $message2 = '
     height: 100%;
 }
 </style>
-
 <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches(".dropbtn")) {
-
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -2066,7 +1861,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
 <style>
 .dropbtn {
     background-color: #4CAF50;
@@ -2076,18 +1870,15 @@ window.onclick = function(event) {
     border: none;
     cursor: pointer;
 }
-
 .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
 }
-
 .dropdown {
     float: right;
     position: relative;
     display: inline-block;
     
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -2097,93 +1888,61 @@ window.onclick = function(event) {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     right: 0;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown a:hover {background-color: #f1f1f1}
-
 .show {display:block;}
 </style>
-
 </head>
-
 <body class="magic">
-
 <!--Start Home Page-->
-
 <!--Top-Script-->
 <div class="black-stip">
   <div class="container">
-    <strong>Distribuidor Independiente Herbalife: ' . $name . '</strong>
+    <strong>Distribuidor Independiente Herbalife: <b>' . $name . '</b></strong>
     <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">Lenguaje </button>
       <div id="myDropdown" class="dropdown-content">
-        <a href="../../../es"><img src="../../../assets/images/band_esp.png"> Spanish</a>
-        <a href="../../../en"><img src="../../../assets/images/band_eng.png"> English</a>
+        <a href="../../es"><img src="../../../assets/images/band_esp.png"> Spanish</a>
+        <a href="../../en"><img src="../../../assets/images/band_eng.png"> English</a>
       </div>
-
     </div>
   </div>
 </div>
-
 <img src="../../../assets/images/banner-es.jpg" width="100%" height="auto">
-
-
 <!-- Video Wrap & Form -->
 <div class="container">
   <div class="row">
     <div class="col-md-6" style="margin-top:10px;">
-
-      <!--
-      <span class="video-link" data-video-id="y-SS7IWP5TFEs">
-        <img src="../../../assets/images/video-fake1.jpg" width="100%" height="auto">
-      </span>
-      -->
-
       <div class="video-responsive">
-        <iframe src="https://player.vimeo.com/video/181632470" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/'.$idvideo1.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
-
-      <!--<span class="video-link" data-video-id="y-SS7IWP5TFEs" data-video-width="640px" data-video-height="390px" data-video-autoplay="1" ></span>-->
-
-
     </div>
-
     <?php set_time_limit(0);
-
-
 if($_POST["Continue"]){
-
-
   //EMAIL DEL DESTINATARIO
   $FromName = $_POST["firstname"]." ".$_POST["lastname"];
   $FromMail = $mail_coach;
   $Phone = $_POST["phone"];
   $firstname = $_POST["firstname"];
   $lastname = $_POST["lastname"];
-
-
+  $meta = $_POST["custom_1"];
   //ASUNTO DEL EMAIL
-  $asunto = "3daytrialonline";
-
-
+  $asunto = "3daytrial Captura";
   //MENSAJE DEL EMAIL
   $mensaje = "
   <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
 <html xmlns=\'http://www.w3.org/1999/xhtml\'>
  <head>
 <meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
+<title> Email</title>
 <meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
 </head>
 <body style=\'margin: 20px; padding: 0;\'>
-
-
 <table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
  <tr>
    <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
@@ -2197,6 +1956,7 @@ if($_POST["Continue"]){
     <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
      Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
     </td>
+    <td>Meta: " . $meta . "</td>
    </tr>
    <tr>
      <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
@@ -2216,7 +1976,6 @@ if($_POST["Continue"]){
   <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
       <tr align=\'center\' >
         <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          &reg; Herbalife<br/>
           
           <b><i>IMPORTANT NOTE:</i> No responda a este mensaje, si este mensaje llega a usted PARA incorrectos y considerar el SPAM,<BR>
           Contacta con Soporte Técnico: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
@@ -2226,8 +1985,6 @@ if($_POST["Continue"]){
 </td>
  </tr>
 </table>
-
-
 </body>
 </html>";
   $mensaje = stripslashes($mensaje);
@@ -2240,26 +1997,17 @@ if($_POST["Continue"]){
   $headers .= "X-Priority: 1\n";
   $headers .= "X-MSMail-Priority: High\n";
   $headers .= "X-Mailer: Widgets.com Server";
-
-
   //ARQUIVO CON LOS EMAILS
-
   $arquivo = $_POST["lista"];
-
-
   //GENERANDO UN ARRAY CON A LISTA
-
   $file = explode("\n", $arquivo);
-
   $i = 1;
-
 }
-
  ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
-        <h2 id="goform">¡Empieza ahora!</h2>
-        <p>Rellena este formulario para empezar ahora!</p>
+        <h2 id="goform">Get started now!</h2>
+        <p>Fill out this form to get started now!</p>
          <?php 
           if($_POST["Continue"]) { ?>
           <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
@@ -2271,7 +2019,7 @@ if($_POST["Continue"]){
                   echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
                   <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
                   $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3dt\')";
+                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
                   if ($conexion->query($insert) == TRUE) {
                     echo" <script>alert(\'Message Send Successfully!\');
                     </script>";
@@ -2321,12 +2069,7 @@ if($_POST["Continue"]){
     </dic>
   </div>
 </div>
-
-
-
-
 <!--Bonus Part-->
-
 <section class="bonus">
   <div class="container">
     <span class="main-heading wow fadeInDown">
@@ -2352,9 +2095,6 @@ if($_POST["Continue"]){
                   comer los mismos alimentos para el resto de su vida!</p>
               </div>
           </div>
-
-
-
           <div class="mobile-bonus visible-xs">
             <img src="../../../assets/images/bonus-2m.jpg" class="img-responsive">
           </div>
@@ -2371,7 +2111,6 @@ if($_POST["Continue"]){
                   todo el país, o hacer los entrenamientos en casa. ¡Es tu elección!</p>
               </div>
           </div>
-
           <div class="mobile-bonus visible-xs">
             <img src="../../../assets/images/bonus-3m.jpg" class="img-responsive">
           </div>
@@ -2389,9 +2128,7 @@ if($_POST["Continue"]){
               </div>
           </div>
       </div>
-
 </section>
-
 <!--Trial Pack-->
 <section class="pack-bg"><div class="container">
     <div class="pack-wrap wow fadeInDown">
@@ -2401,7 +2138,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
 <!--Herbalife Products-->
 <section class="herbalife-product">
   <div class="container">
@@ -2443,8 +2179,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
-
 <!--About Author-->
 <section class="about-author">
   <div class="container">
@@ -2455,7 +2189,7 @@ if($_POST["Continue"]){
             <h4>' . $name . '</h4>
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
-              </i>' . $phone . '</a>
+              </i><font size"5em">' . $phone . '</a></font>
             <h4>Seré su Distribuidor Nutrición para los próximos 3 días ...</h4>
             <p>Cuando usted toma mi Desafío salud de pruebas de 3 días, le ayudaré a desarrollar un plan
               de nutrición personal! Sus objetivos son únicos y su plan de nutrición debe ser así! Yo
@@ -2547,9 +2281,6 @@ if($_POST["Continue"]){
       </div>
     </div>
 </section>
-
-
-
 <!--Footer
 <footer>
   <div class="container">
@@ -2562,12 +2293,10 @@ if($_POST["Continue"]){
 </body>
 </html>
 ';
-
-
 $message3 = '
 <?php
-  $conexion = new mysqli("localhost", "thrdaytr_oportun", "oportunidadhbl", "thrdaytr_promocionhbl");
-  $search = $conexion->query(\'SELECT * FROM coach WHERE name ="'.$id_coach_lead.'"\');
+  $conexion = new mysqli("localhost", "thrdaytr_webapp", "pRf_&lue#LU7", "thrdaytr_planhbl");
+  $search = $conexion->query(\'SELECT * FROM coachleads WHERE id ="'.$id_coach_lead.'"\');
   if ($search->num_rows > 0) {
   $row = $search->fetch_assoc();
   $mail_coach = $row["email"];
@@ -2576,22 +2305,19 @@ $message3 = '
   $id_coach="";
 }
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
+<script src="http://planhbl.com/hecoweb/panel/visitas.php"></script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>3Day Trial Pack | Home</title>
   <link rel="icon" href="../../assets/images/favicon.png">
-
-
   
-
   
   <!--Script para ver el dispositivo -->
   <script type="text/javascript">
     var device = navigator.userAgent
-
     if (device.match(/Iphone/i) ||
         device.match(/Ipod/i)||
         device.match(/Android/i)||
@@ -2613,25 +2339,21 @@ $message3 = '
         device.match(/HTC/i))
     {
     window.location = "movil/";
-
     }
     else
     {
       
     }
   </script>
-
 <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches(".dropbtn")) {
-
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -2643,7 +2365,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
 <style>
 .dropbtn {
     background-color: #4CAF50;
@@ -2653,18 +2374,15 @@ window.onclick = function(event) {
     border: none;
     cursor: pointer;
 }
-
 .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
 }
-
 .dropdown {
     float: right;
     position: relative;
     display: inline-block;
     
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -2674,90 +2392,63 @@ window.onclick = function(event) {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     right: 0;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown a:hover {background-color: #f1f1f1}
-
 .show {display:block;}
 </style>
-
 </head>
-
 </head>
-
 <body class="magic">
-
 <!--Start Home Page-->
-
 <!--Top-Script-->
 <div class="black-stip">
   <div class="container">
-  <strong>Independent Distributor Herbalife: ' . $name . '</strong> 
+  <strong>Independent Distributor Herbalife: <b>' . $name . '</b></strong> 
   <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">Language</button>
       <div id="myDropdown" class="dropdown-content">
-        <a href="../../../es"><img src="../../assets/images/band_esp.png"> Spanish</a>
-        <a href="../../en"><img src="../../assets/images/band_eng.png"> English</a>
+        <a href="../es"><img src="../../assets/images/band_esp.png"> Spanish</a>
+        <a href="../en"><img src="../../assets/images/band_eng.png"> English</a>
       </div>
     </div>
-
     </div>
-
 </div>
-
 <img src="../../assets/images/banner.jpg" width="100%" height="auto">
-
-
 <!-- Video Wrap & Form -->
 <div class="container">
   <div class="row">
     <div class="col-md-6" style="margin-top:60px;">
-
-      <span class="video-link" data-video-id="v-181627976">
+      <span class="video-link" data-video-id="'.$video2.$idvideo2.'">
         <img src="../../assets/images/video-fake1.jpg" width="100%" height="auto">
       </span>
-
-      <span class="video-link" data-video-id="v-181627976" data-video-width="1280px" data-video-height="720px"  ></span>
-
-
+      <span class="video-link" data-video-id="'.$video2.$idvideo2.'" data-video-width="1280px" data-video-height="720px" data-video-autoplay="1" ></span>
     </div>
-
     <?php set_time_limit(0);
-
-
 if($_POST["Continue"]){
-
-
   //EMAIL DEL DESTINATARIO
   $FromName = $_POST["firstname"]." ".$_POST["lastname"];
   $FromMail = $mail_coach;
   $Phone = $_POST["phone"];
   $firstname = $_POST["firstname"];
   $lastname = $_POST["lastname"];
-
-
+  $meta = $_POST["custom_1"];
   //ASUNTO DEL EMAIL
-  $asunto = "3daytrialonline";
-
-
+  $asunto = "3daytrial Captura";
   //MENSAJE DEL EMAIL
   $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
+   <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
 <html xmlns=\'http://www.w3.org/1999/xhtml\'>
  <head>
 <meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
+<title> Email</title>
 <meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
 </head>
 <body style=\'margin: 20px; padding: 0;\'>
-
-
 <table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
  <tr>
    <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
@@ -2771,6 +2462,7 @@ if($_POST["Continue"]){
     <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
      Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
     </td>
+    <td>Meta: " . $meta . "</td>
    </tr>
    <tr>
      <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
@@ -2790,7 +2482,6 @@ if($_POST["Continue"]){
   <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
       <tr align=\'center\' >
         <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          &reg; Herbalife<br/>
           
           <b><i>IMPORTANT NOTE:</i> DO NOT REPLY TO THIS MESSAGE, IF THIS MESSAGE COMES TO YOU FOR ANY INCORRECT OR CONSIDER THE SPAM,
             Contact technical support: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
@@ -2800,11 +2491,9 @@ if($_POST["Continue"]){
 </td>
  </tr>
 </table>
-
-
 </body>
 </html>";
-   $mensaje = stripslashes($mensaje);
+  $mensaje = stripslashes($mensaje);
   //CABECERA DEL EMAIL
   $headers .= "MIME-Version: 1.0\n";
   $headers .= "Content-type: text/html; charset=iso-8859-1\n";
@@ -2814,32 +2503,23 @@ if($_POST["Continue"]){
   $headers .= "X-Priority: 1\n";
   $headers .= "X-MSMail-Priority: High\n";
   $headers .= "X-Mailer: Widgets.com Server";
-
-
   //ARQUIVO CON LOS EMAILS
-
   $arquivo = $_POST["lista"];
-
-
   //GENERANDO UN ARRAY CON A LISTA
-
   $file = explode("\n", $arquivo);
-
   $i = 1;
-
 }
-
  ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
-        <h2 id="goform">Get Started now!</h2>
-        <p>Fill out this form to get started now!</p>
-          <?php 
+        <h2 id="goform">¡Empieza ahora!</h2>
+        <p>Rellena este formulario para empezar ahora!</p>
+         <?php 
           if($_POST["Continue"]) { ?>
           <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
             <tr>
               <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-              <?
+             <?
               foreach ($file as $mail) {
                 if(mail($mail, $asunto, $mensaje, $headers)) {
                   echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
@@ -2881,18 +2561,17 @@ if($_POST["Continue"]){
               <option value="Build Muscle">Build Muscle</option>
               <option value="Gain Energy">Gain Energy</option>
               <option value="Other">Other</option>
-            </select>
+            </select>lect>
           </div>
           <div class="form-group">
-           <input type="submit" value="Continue" name="Continue" id="Continue" class="btn"></div>
+           <input type="submit" value="Continue" id="Continue" name="Continue" class="btn"></div>
         </form>
       </div>
+     
     </dic>
   </div>
 </div>
-
 <!--Bonus Part-->
-
 <section class="bonus">
   <div class="container">
     <span class="main-heading wow fadeInDown">
@@ -2921,7 +2600,6 @@ if($_POST["Continue"]){
           </div>
     </figure>
       </div>
-
       <div class="grid2 cs-style-2">
         <figure>
           <div class="mobile-bonus visible-xs">
@@ -2941,7 +2619,6 @@ if($_POST["Continue"]){
           </div>
         </figure>
       </div>
-
       <div class="grid3 cs-style-3">
         <figure>
           <div class="mobile-bonus visible-xs">
@@ -2962,9 +2639,7 @@ if($_POST["Continue"]){
         </figure>
         </div>
       </div>
-
 </section>
-
 <!--Trial Pack-->
 <section class="pack-bg"><div class="container">
     <div class="pack-wrap wow fadeInDown">
@@ -2974,7 +2649,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
 <!--Herbalife Products-->
 <section class="herbalife-product">
   <div class="container">
@@ -3016,21 +2690,17 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
-
-
 <!--About Author-->
 <section class="about-author">
   <div class="container">
     <div class="coach-info wow fadeInDown">
       <div class="row">
-
         <div class="col-md-12 col-sm-7">
           <div class="author-info-content text-center">
             <h4>' . $name . '</h4>
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
-              </i>' . $phone . '</a>
+              </i><font size"5em">' . $phone . '</a></font>
             <h4>I´ll Be Your Nutrition Coach
               for the Next 3 Days… </h4>
             <p>When you take my 3 day trial health challenge I´ll help you develop a personal nutrition plan!
@@ -3098,12 +2768,8 @@ if($_POST["Continue"]){
           <p>*Consumers who use Herbalife® Formula 1 twice per day as part of a healthy lifestyle can generally expect to lose around 0.5 to 1 pound per week. Participants in a 12-week, single-blind study used Formula 1 twice per day (once as a meal and once as a snack) with a reduced calorie diet and a goal of 30 minutes of exercise per day. Participants followed either a high protein diet or a standard protein diet. Participants in both groups lost about 8.5 pounds.</p>
         </div>
       </div>
-
     </div>
 </section>
-
-
-
 <!--Footer
 <footer><div class="container">
   <span class="hbl-pro">
@@ -3113,11 +2779,7 @@ if($_POST["Continue"]){
  Weight Loss Disclaimer</a> | <a href="site/disclaimers/earnings_disclaimer.html" target="_blank">Earnings Disclaimer</a>
     </ul></div>
 </footer><!--End Home Page-->
-
 </body>
-
-
-
   <!--Stylesheet-->
   <link rel="icon" href="../../assets/images/favicon.png">
   <link href="../../assets/css/theme.css" rel="stylesheet" type="text/css">
@@ -3125,9 +2787,6 @@ if($_POST["Continue"]){
   <link rel="stylesheet" href="../../assets/css/responsiveslides.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!--Stylesheet-->
-
-
-
  <!--JavaScript-->
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="../../assets/js/video.js"></script>
@@ -3142,16 +2801,10 @@ if($_POST["Continue"]){
   });
   });
   </script>
-
-
-
-
-
 <style type="text/css">
     .video-target {
     cursor: pointer;
 }
-
 .video-wrapper {
     display: none;
     position: fixed;
@@ -3164,13 +2817,11 @@ if($_POST["Continue"]){
     background: #000;
     z-index: 21000;
 }
-
 .video-frame {
     position: absolute;
     top: 50%;
     left: 50%;
 }
-
 .video-close{
     float:right;
     margin-top:-30px;
@@ -3186,22 +2837,16 @@ if($_POST["Continue"]){
     line-height: 0px;
     padding: 11px 3px;
 }
-
 .video-close:before {
     content: "×";
 }
 </style>
-
-
-
-
 </html>
 ';
-
 $message4 = '
 <?php
-  $conexion = new mysqli("localhost", "thrdaytr_oportun", "oportunidadhbl", "thrdaytr_promocionhbl");
-  $search = $conexion->query(\'SELECT * FROM coach WHERE name ="'.$id_coach_lead.'"\');
+  $conexion = new mysqli("localhost", "thrdaytr_webapp", "pRf_&lue#LU7", "thrdaytr_planhbl");
+  $search = $conexion->query(\'SELECT * FROM coachleads WHERE id ="'.$id_coach_lead.'"\');
   if ($search->num_rows > 0) {
   $row = $search->fetch_assoc();
   $mail_coach = $row["email"];
@@ -3210,10 +2855,11 @@ $message4 = '
   $id_coach="";
 }
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
+<script src="http://planhbl.com/hecoweb/panel/visitas.php"></script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>3Day Trial Pack | Home</title>
   <!--Stylesheet-->
@@ -3221,12 +2867,9 @@ $message4 = '
   <link href="../../../assets/css/theme.css" rel="stylesheet" type="text/css">
   <link href="../../../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
   <!--Stylesheet-->
-
-
   <!--Script para ver el dispositivo -->
   <script type="text/javascript">
     var device = navigator.userAgent
-
     if (device.match(/Iphone/i) ||
         device.match(/Ipod/i)||
         device.match(/Android/i)||
@@ -3248,16 +2891,12 @@ $message4 = '
         device.match(/HTC/i))
     {
     
-
     }
     else
     {
       window.location = "../";
     }
   </script>
-
-
-
 <style type="text/css">
     .video-responsive {
     position: relative;
@@ -3272,18 +2911,15 @@ $message4 = '
     height: 100%;
 }
 </style>
-
 <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches(".dropbtn")) {
-
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -3295,7 +2931,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-
 <style>
 .dropbtn {
     background-color: #4CAF50;
@@ -3305,18 +2940,15 @@ window.onclick = function(event) {
     border: none;
     cursor: pointer;
 }
-
 .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
 }
-
 .dropdown {
     float: right;
     position: relative;
     display: inline-block;
     
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -3326,92 +2958,63 @@ window.onclick = function(event) {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     right: 0;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown a:hover {background-color: #f1f1f1}
-
 .show {display:block;}
 </style>
-
 </head>
-
 </head>
-
 <body class="magic">
-
 <!--Start Home Page-->
-
 <!--Top-Script-->
 <div class="black-stip">
   <div class="container">
-  <strong>Independent Distributor Herbalife: ' . $name . '</strong>
+  <strong>Independent Distributor Herbalife: <b>' . $name . '</b></strong>
   <div class="dropdown">
     <button onclick="myFunction()" class="dropbtn">Language </button>
       <div id="myDropdown" class="dropdown-content">
-        <a href="../../../es"><img src="../../../assets/images/band_esp.png"> Spanish</a>
-        <a href="../../../en"><img src="../../../assets/images/band_eng.png"> English</a>
+        <a href="../../es"><img src="../../../assets/images/band_esp.png"> Spanish</a>
+        <a href="../../en"><img src="../../../assets/images/band_eng.png"> English</a>
       </div>
     </div>
      </div>
 </div>
-
 <img src="../../../assets/images/banner.jpg" width="100%" height="auto">
-
-
 <!-- Video Wrap & Form -->
 <div class="container">
   <div class="row">
     <div class="col-md-6" style="margin-top:10px;">
 
-      <!--
-      <span class="video-link" data-video-id="y-SS7IWP5TFEs">
-        <img src="../../../assets/images/video-fake1.jpg" width="100%" height="auto">
-      </span>
-      -->
       <div class="video-responsive">
-        <iframe src="https://player.vimeo.com/video/181627976" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/'.$idvideo2.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
-      <!--<span class="video-link" data-video-id="y-SS7IWP5TFEs" data-video-width="640px" data-video-height="390px" data-video-autoplay="1" ></span>-->
-
-
     </div>
-
     <?php set_time_limit(0);
-
-
 if($_POST["Continue"]){
-
-
   //EMAIL DEL DESTINATARIO
   $FromName = $_POST["firstname"]." ".$_POST["lastname"];
   $FromMail = $mail_coach;
   $Phone = $_POST["phone"];
   $firstname = $_POST["firstname"];
   $lastname = $_POST["lastname"];
-
-
+  $meta = $_POST["custom_1"];
   //ASUNTO DEL EMAIL
-  $asunto = "3daytrialonline";
-
-
+  $asunto = "3daytrial Captura";
   //MENSAJE DEL EMAIL
   $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
+   <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
 <html xmlns=\'http://www.w3.org/1999/xhtml\'>
  <head>
 <meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
+<title> Email</title>
 <meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
 </head>
 <body style=\'margin: 20px; padding: 0;\'>
-
-
 <table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
  <tr>
    <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
@@ -3425,6 +3028,7 @@ if($_POST["Continue"]){
     <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
      Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
     </td>
+    <td>Meta: " . $meta . "</td>
    </tr>
    <tr>
      <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
@@ -3444,7 +3048,6 @@ if($_POST["Continue"]){
   <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
       <tr align=\'center\' >
         <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          &reg; Herbalife<br/>
           
           <b><i>IMPORTANT NOTE:</i> DO NOT REPLY TO THIS MESSAGE, IF THIS MESSAGE COMES TO YOU FOR ANY INCORRECT OR CONSIDER THE SPAM,
             Contact technical support: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
@@ -3454,11 +3057,9 @@ if($_POST["Continue"]){
 </td>
  </tr>
 </table>
-
-
 </body>
 </html>";
-   $mensaje = stripslashes($mensaje);
+  $mensaje = stripslashes($mensaje);
   //CABECERA DEL EMAIL
   $headers .= "MIME-Version: 1.0\n";
   $headers .= "Content-type: text/html; charset=iso-8859-1\n";
@@ -3468,32 +3069,23 @@ if($_POST["Continue"]){
   $headers .= "X-Priority: 1\n";
   $headers .= "X-MSMail-Priority: High\n";
   $headers .= "X-Mailer: Widgets.com Server";
-
-
   //ARQUIVO CON LOS EMAILS
-
   $arquivo = $_POST["lista"];
-
-
   //GENERANDO UN ARRAY CON A LISTA
-
   $file = explode("\n", $arquivo);
-
   $i = 1;
-
 }
-
  ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
-        <h2 id="goform">Get Started now!</h2>
-        <p>Fill out this form to get started now!</p>
-          <?php 
+        <h2 id="goform">¡Empieza ahora!</h2>
+        <p>Rellena este formulario para empezar ahora!</p>
+         <?php 
           if($_POST["Continue"]) { ?>
           <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
             <tr>
               <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-              <?
+             <?
               foreach ($file as $mail) {
                 if(mail($mail, $asunto, $mensaje, $headers)) {
                   echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
@@ -3535,18 +3127,17 @@ if($_POST["Continue"]){
               <option value="Build Muscle">Build Muscle</option>
               <option value="Gain Energy">Gain Energy</option>
               <option value="Other">Other</option>
-            </select>
+            </select>lect>
           </div>
           <div class="form-group">
-           <input type="submit" value="Continue" name="Continue" id="Continue" class="btn"></div>
+           <input type="submit" value="Continue" id="Continue" name="Continue" class="btn"></div>
         </form>
       </div>
+     
     </dic>
   </div>
 </div>
-
 <!--Bonus Part-->
-
 <section class="bonus">
   <div class="container">
     <span class="main-heading wow fadeInDown">
@@ -3569,7 +3160,6 @@ if($_POST["Continue"]){
                   get stuck eating the same foods for the rest of your life!</p>
               </div>
           </div>
-
           <div class="mobile-bonus visible-xs">
             <img src="../../../assets/images/bonus-2m.jpg" class="img-responsive">
           </div>
@@ -3583,7 +3173,6 @@ if($_POST["Continue"]){
                   country, or do the workouts at home. It’s your choice! </p>
               </div>
           </div>
-
           <div class="mobile-bonus visible-xs">
             <img src="../../../assets/images/bonus-3m.jpg" class="img-responsive">
           </div>
@@ -3598,9 +3187,7 @@ if($_POST["Continue"]){
               </div>
           </div>
       </div>
-
 </section>
-
 <!--Trial Pack-->
 <section class="pack-bg"><div class="container">
     <div class="pack-wrap wow fadeInDown">
@@ -3610,7 +3197,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
 <!--Herbalife Products-->
 <section class="herbalife-product">
   <div class="container">
@@ -3652,9 +3238,6 @@ if($_POST["Continue"]){
     </div>
   </div>
 </section>
-
-
-
 <!--About Author-->
 <section class="about-author">
   <div class="container">
@@ -3665,7 +3248,7 @@ if($_POST["Continue"]){
            <h4>' . $name . '</h4>
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
-              </i>' . $phone . '</a>
+              </i><font size"5em">' . $phone . '</a></font>
             <h4>I´ll Be Your Nutrition Coach
               for the Next 3 Days… </h4>
             <p>When you take my 3 day trial health challenge I´ll help you develop a personal nutrition plan!
@@ -3735,9 +3318,6 @@ if($_POST["Continue"]){
       </div>
     </div>
 </section>
-
-
-
 <!--Footer
 <footer><div class="container">
   <span class="hbl-pro">
@@ -3747,7 +3327,6 @@ if($_POST["Continue"]){
  Weight Loss Disclaimer</a> | <a href="site/disclaimers/earnings_disclaimer.html" target="_blank">Earnings Disclaimer</a>
     </ul></div>
 </footer><!--End Home Page-->
-
 </body>
 </html>
 ';
@@ -3906,7 +3485,7 @@ echo "<h4>Ha Seleccionado Capturadoras a crear en: " . $selected . "</h4>";
             if(!$b){echo "ERROR al insertar el fichero";}
 
 
-            $insert = "INSERT INTO webcoach(coach,web,dir_name,folder,country) VALUES('$id_coach_lead','3dt','$estructura1','$folder','$value')";
+            $insert = "INSERT INTO webcoach(coach,web,dir_name,folder,country) VALUES('$id_coach_lead','3dt','$estructura2','$folder','$value')";
               if ($conexion->query($insert) == TRUE) {
               }else{
 
@@ -3934,10 +3513,84 @@ echo "<h4>Ha Seleccionado Capturadoras a crear en: " . $selected . "</h4>";
 
             }
 
+            if ($value == 'Dominicana') {
+                $estructura3 = "../../3dt/".$folder;
+
+                 //creamos directorio para Reublica Dominicana
+        if(file_exists($estructura3)){
+            ?>
+            <div class="container">
+                <div class="row">
+                    <div class="inner-addon left-addon">
+
+            <?php 
+
+            echo "<script> 
+                alert('El nombre de la carpeta para la web de Reublica Dominicana existe Verifique y vuelva a intentar')
+                </script>";
+
+            echo("<h3>Capturadora en Reublica Dominicana:</h3><br>");
+            echo("El nombre de la carpeta para la web de Reublica Dominicana existe Verifique y vuelva a intentar<br><br>");
+            echo "<a href=".$estructura3." target='_blank' class='btn btn-success  '><span class='glyphicon glyphicon-thumbs-up'></span> Mostrar Web ''".$folder."''</a>";
+
+            echo "<br><br>";
+
+            echo "<input type='button' class='btn btn-danger' value='volver atrás' name='volver atrás2' onclick='history.back()' />";
+
+
+                     echo '</div>';
+                echo '</div>';
+            echo '</div>';
+            //echo $mensaje;
+        }else{
+            mkdir($estructura3, 0777);
+            mkdir($estructura3."/movil", 0777);
+ 
+            //indicamos la ruta del fichero index.php
+ 
+            $ruta = $estructura3."/index.php";
+            $ruta2 = $estructura3."/movil/index.php";
+ 
+            //Creamos el fichero index.php e introducimos el contenido del TextArea 
+            $a = file_put_contents($ruta, $mensaje);
+            $b = file_put_contents($ruta2, $mensaje2);
+ 
+            if(!$a){echo "ERROR al insertar el fichero";}   
+            if(!$b){echo "ERROR al insertar el fichero";}
+
+
+            $insert = "INSERT INTO webcoach(coach,web,dir_name,folder,country) VALUES('$id_coach_lead','3dt','$estructura3','$folder','$value')";
+              if ($conexion->query($insert) == TRUE) {
+              }else{
+
+              }
+
+
+
+             echo "<script> 
+                alert('Se ha creado Satisfactoriamente en Republica Dominicana')
+                </script>";
+
+            echo "<a href=".$estructura3." target='_blank' class='btn btn-success  '><span class='glyphicon glyphicon-thumbs-up'></span> Mostrar Web ''".$folder."''</a>";
+            echo "<br/>";
+            echo "<br/>";
+            /*echo $ruta; 
+            echo "<br/>";
+            $host= $_SERVER["HTTP_HOST"];
+            echo "<input type='text' class='form-control' value='http://" . $estructura3 . "'>";
+            echo "<br>";*/
+
+            
+
+        }
+
+
+            }
+
         }
     }
     else {
-        $selected = 'Seleccione una web a crear, Estados Unidos o Colombia';
+        $selected = 'Seleccione una web a crear, Estados Unidos, Colombia o Rep&uacuteblica Dominicana';
     }
 
 
@@ -3994,12 +3647,23 @@ $(document).ready(function(){
 });
 </script>
 
+
+<script type="text/javascript">
+    function showContent() {
+        element = document.getElementById("content");
+        check = document.getElementById("USA");
+        if (check.checked) {
+            element.style.display='block';
+        }
+        else {
+            element.style.display='none';
+        }
+    }
+</script>
+
 <?php 
-
 if ($tipo_usu == "Administrador") {
-
  ?>
-
 
 <div class="container">
     <div class="row">
@@ -4007,11 +3671,14 @@ if ($tipo_usu == "Administrador") {
             <!--<h3>Create Web 3daytrial Challenge</h3>-->
             <h3>Creación del WebSite Reto del Paquete de 3 días</h3>
 <br>
-          <div class="form-group col-xs-6">
+          <div class="form-group col-xs-8">
           
           <!--<label for="name">Select a Coach to see your list</label>-->
           <label for="name">Selecione un Entrenador Asociado</label>
             <div class="inner-addon left-addon">
+              <?php
+              ?>
+
               <select name="coach" id="coach" class="form-control" required>
                 <option value="">>-----------------Seleccionar Entrenador--------------<</option>
                   <?php
@@ -4040,11 +3707,65 @@ if ($tipo_usu == "Administrador") {
             <!--<label for="">Create web on:</label>-->
             <label for="">Crear website en:</label>
             <div class="inner-addon left-addon">
-            <input type="checkbox" name="web[]" value="USA"/> Estados Unidos <br/>
-            <input type="checkbox" name="web[]" value="Colombia"/> Colombia <br/>
-            <!--<input type="checkbox" name="web[]" value="Venezuela"/> Venezuela <br/>-->
+              <input type="checkbox" name="web[]" id="USA" value="USA" onchange="javascript:showContent()"/> Estados Unidos <br/>
+              <input type="checkbox" name="web[]" value="Colombia"/> Colombia <br/>
+              <!--<input type="checkbox" name="web[]" value="Dominicana"/> Rep&uacuteblica Dominicana <br/>-->
             </div>
 
+            <h3 align="center">Change Video from Capturing</h3>
+              <br>
+              <h4>Video para Capturadoras Colombia</h4>
+              <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video3" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video3" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo3" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+              <br><br>
+              <div id="content" style="display: none;">
+              <br>
+                <h4>Video para Capturadoras U.S.A (Ver. Español)</h4>
+                <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video1" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video1" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo1" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+
+              <br>
+              <br>
+              <br>
+                <h4>Video para Capturadoras U.S.A (Ver. Ingles)</h4>
+                <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video2" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video2" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo2" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+              </div>
+            <br><br><br>
+            <div class="row">
+              <h3 align="center">How to change a Video</h3>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">1</font></span><br><br><br></div>
+                Select a ID from video url Vimeo or Youtube https://vimeo.com/<strong><i>182629472</i></strong> or https://www.youtube.com/watch?v=<strong><i>UUqzPRClA4o</i></strong>
+              </div>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">2</font></span><br><br><br></div>
+                Select a Origin Video, Insert de ID in text form, if is Vimeo is: <strong><i>182629472</i></strong>, if is YouTube is: <strong><i>UUqzPRClA4o</i></strong>
+              </div>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">3</font></span><br><br><br></div>
+                Press the Button "Change Video" and update you Capturing for see the new Video
+              </div>
+            </div>
+            <br><br>
             <input type="submit" class="btn btn-success" value="Create  >">
                 
           </div>
@@ -4055,9 +3776,7 @@ if ($tipo_usu == "Administrador") {
 </div>
 
 <?php 
-
 } elseif ($tipo_usu == "Lider") {
-
   ?>
 
 
@@ -4067,19 +3786,20 @@ if ($tipo_usu == "Administrador") {
              <!--<h3>Create Web 3daytrial Challenge</h3>-->
             <h3>Creación del WebSite Reto del Paquete de 3 días</h3>
 <br>
-          <div class="form-group col-xs-6">
+          <div class="form-group col-xs-8">
           <!--<label for="name">Select a Coach to see your list</label>-->
           <label for="name">Entrenador :</label>
             <div class="inner-addon left-addon">
             <?php 
-              $user2 = $conexion->query("SELECT * FROM coachleads WHERE id = ".$id_name);
+              $user2 = $conexion->query("SELECT * FROM coach WHERE id = ".$id_name);
               $row2 = $user2->fetch_assoc();
               $name_user = $row2['name'];
-
               echo $name_user;
+              echo '<input type="hidden" class="form-control"  name="id_coach" id="coach" value="'.$id_name.'" readonly/>';
+            ?>
+            </div>
 
-            echo "</div>";
-
+            <?php 
 
             $result = $conexion->query("SELECT * FROM coachleads WHERE id_coach = ".$id_name);
             if ($result->num_rows > 0) {
@@ -4092,13 +3812,7 @@ if ($tipo_usu == "Administrador") {
                 echo "</select>";
 
 
-            }else {
-              echo 'Register a new coach Leads for continues<br>
-                  <a href="../cpanel/new-coach-leads.php" class="btn btn-success">Create  ></a>';
-              
-            }
             ?>
-
 
             <!--<label for="folder">Folder name</label>-->
             <label for="folder">Nombre de Carpeta a crear</label>
@@ -4110,27 +3824,84 @@ if ($tipo_usu == "Administrador") {
             <!--<label for="">Create web on:</label>-->
             <label for="">Crear website en:</label>
             <div class="inner-addon left-addon">
-            <input type="checkbox" name="web[]" value="USA"/> Estados Unidos <br/>
+            <input type="checkbox" name="web[]" id="USA" value="USA" onchange="javascript:showContent()"/> Estados Unidos <br/>
             <input type="checkbox" name="web[]" value="Colombia"/> Colombia <br/>
-            <!--<input type="checkbox" name="web[]" value="Venezuela"/> Venezuela <br/>-->
+            <!--<input type="checkbox" name="web[]" value="Dominicana"/> Rep&uacuteblica Dominicana <br/>-->
             </div>
 
+            <h3 align="center">Change Video from Capturing</h3>
+              <br>
+              <h4>Video para Capturadoras Colombia</h4>
+              <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video3" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video3" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo3" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+              <br><br>
+              <div id="content" style="display: none;">
+              <br>
+                <h4>Video para Capturadoras U.S.A (Ver. Español)</h4>
+                <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video1" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video1" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo1" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+
+              <br>
+              <br>
+              <br>
+                <h4>Video para Capturadoras U.S.A (Ver. Ingles)</h4>
+                <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video2" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video2" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo2" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+              </div>
+            <br><br><br>
+            <div class="row">
+              <h3 align="center">How to change a Video</h3>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">1</font></span><br><br><br></div>
+                Select a ID from video url Vimeo or Youtube https://vimeo.com/<strong><i>182629472</i></strong> or https://www.youtube.com/watch?v=<strong><i>UUqzPRClA4o</i></strong>
+              </div>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">2</font></span><br><br><br></div>
+                Select a Origin Video, Insert de ID in text form, if is Vimeo is: <strong><i>182629472</i></strong>, if is YouTube is: <strong><i>UUqzPRClA4o</i></strong>
+              </div>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">3</font></span><br><br><br></div>
+                Press the Button "Change Video" and update you Capturing for see the new Video
+              </div>
+            </div>
+            <br><br>
             <input type="submit" class="btn btn-success" value="Create  >">
+
+            <?php 
+
+            }else {
+              echo 'Register a new coach Leads for continues<br>
+                  <a href="../panel/new-coach-leads.php" class="btn btn-success">Create  ></a>';
+              
+            }  ?>
                 
           </div>
-            
 
         </form>
     </div>
 </div>
 
 
-
-
-
 <?php 
-  } elseif ($tipo_usu == "Tab") {
-
+  } elseif ($tipo_usu == "Usuario") {
   ?>
 
 
@@ -4140,7 +3911,7 @@ if ($tipo_usu == "Administrador") {
              <!--<h3>Create Web 3daytrial Challenge</h3>-->
             <h3>Creación del WebSite Reto del Paquete de 3 días</h3>
 <br>
-          <div class="form-group col-xs-6">
+          <div class="form-group col-xs-8">
           <!--<label for="name">Select a Coach to see your list</label>-->
           <label for="name">Entrenador :</label>
             <div class="inner-addon left-addon">
@@ -4148,14 +3919,10 @@ if ($tipo_usu == "Administrador") {
               $user2 = $conexion->query("SELECT * FROM coachleads WHERE id = ".$id_name);
               $row2 = $user2->fetch_assoc();
               $name_user = $row2['name'];
-
               echo $name_user;
-              echo '<input type="hidden" class="form-control"  name="id_coach_lead" id="coach_lead" value="'.$id_name.'" readonly/>';
-
-            echo "</div>";
-
+              echo '<input type="hidden" class="form-control"  name="id_coach_lead" id="coach" value="'.$id_name.'" readonly/>';
             ?>
-
+            </div>
 
             <!--<label for="folder">Folder name</label>-->
             <label for="folder">Nombre de Carpeta a crear</label>
@@ -4167,11 +3934,65 @@ if ($tipo_usu == "Administrador") {
             <!--<label for="">Create web on:</label>-->
             <label for="">Crear website en:</label>
             <div class="inner-addon left-addon">
-            <input type="checkbox" name="web[]" value="USA"/> Estados Unidos <br/>
+            <input type="checkbox" name="web[]" id="USA" value="USA" onchange="javascript:showContent()"/> Estados Unidos <br/>
             <input type="checkbox" name="web[]" value="Colombia"/> Colombia <br/>
-            <!--<input type="checkbox" name="web[]" value="Venezuela"/> Venezuela <br/>-->
+            <!--<input type="checkbox" name="web[]" value="Dominicana"/> Rep&uacuteblica Dominicana <br/>-->
             </div>
 
+            <h3 align="center">Change Video from Capturing</h3>
+              <br>
+              <h4>Video para Capturadoras Colombia</h4>
+              <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video3" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video3" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo3" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+              <br><br>
+              <div id="content" style="display: none;">
+              <br>
+                <h4>Video para Capturadoras U.S.A (Ver. Español)</h4>
+                <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video1" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video1" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo1" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+
+              <br>
+              <br>
+              <br>
+                <h4>Video para Capturadoras U.S.A (Ver. Ingles)</h4>
+                <div class="col-xs-5">
+                <label for="video">Select origen Video</label><br>
+                <input type="radio" name="video2" value="y-"> YouTube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="video2" value="v-"> Vimeo
+              </div>
+              <div class="col-xs-6">
+                <input type="text" name="idvideo2" id="video" class="form-control" placeholder="ID Vimeo or YouTube ">
+              </div>
+              </div>
+            <br><br><br>
+            <div class="row">
+              <h3 align="center">How to change a Video</h3>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">1</font></span><br><br><br></div>
+                Select a ID from video url Vimeo or Youtube https://vimeo.com/<strong><i>182629472</i></strong> or https://www.youtube.com/watch?v=<strong><i>UUqzPRClA4o</i></strong>
+              </div>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">2</font></span><br><br><br></div>
+                Select a Origin Video, Insert de ID in text form, if is Vimeo is: <strong><i>182629472</i></strong>, if is YouTube is: <strong><i>UUqzPRClA4o</i></strong>
+              </div>
+              <div class="col-xs-4">
+                <div class="bonus-data"> <span class="count"><font color="black">3</font></span><br><br><br></div>
+                Press the Button "Change Video" and update you Capturing for see the new Video
+              </div>
+            </div>
+            <br><br>
             <input type="submit" class="btn btn-success" value="Create  >">
                 
           </div>
@@ -4182,11 +4003,8 @@ if ($tipo_usu == "Administrador") {
 </div>
 
 
-
-
-
 <?php 
-  } 
+  }
 
 }
 

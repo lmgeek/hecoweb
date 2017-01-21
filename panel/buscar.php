@@ -7,8 +7,8 @@
       }
        
       function buscar($b) {
-            $con = mysql_connect('localhost','thrdaytr_oportun', 'oportunidadhbl');
-            mysql_select_db('thrdaytr_promocionhbl', $con);
+            $con = mysql_connect('localhost','thrdaytr_webapp', 'pRf_&lue#LU7');
+            mysql_select_db('thrdaytr_webapp', $con);
        
             $sql = mysql_query("SELECT * FROM coach WHERE name LIKE '%".$b."%'",$con);
              

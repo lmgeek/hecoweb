@@ -52,7 +52,7 @@ if (isset($_POST['user']) && !empty($_POST['user']) && isset($_POST['password'])
 
 	} else {
 		echo "<script>
-		alert('User is not in Dataphpbase, please Sign Up for use this App.');
+		alert('User or Password Incorrect');
 		window.location = 'index.php';
 		</script>";
 	}

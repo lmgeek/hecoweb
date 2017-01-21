@@ -8,9 +8,9 @@ $where = 'WHERE 1 ORDER BY 1';
 $csv_filename = 'db_export_'.$db_record.'_'.date('Y-m-d').'.csv';
 // database variables
 $hostname = "localhost";
-$user = "thrdaytr_oportun";
-$password = "oportunidadhbl";
-$database = "thrdaytr_promocionhbl";
+$user = "thrdaytr_webapp";
+$password = "pRf_&lue#LU7";
+$database = "thrdaytr_planhbl";
 // Database connecten voor alle services
 mysql_connect($hostname, $user, $password)
 or die('Could not connect: ' . mysql_error());

@@ -65,10 +65,22 @@ body {
               <input type="text" class="form-control" placeholder="Example: Luis Marín"  id="name" name="name" required/>
             </div>
 
-            <label for="phone">Teléfono>
+            <label for="phone">Teléfono
             <div class="inner-addon left-addon">
               <i class="glyphicon glyphicon-phone"></i>
               <input type="text" class="form-control" placeholder="Example: +11234567890"  id="phone" name="phone" required/>
+            </div>
+
+            <label for="phone">Teléfono 2
+            <div class="inner-addon left-addon">
+              <i class="glyphicon glyphicon-phone"></i>
+              <input type="text" class="form-control" placeholder="Example: +11234567890"  id="phone" name="phone2" />
+            </div>
+
+            <label for="phone">Teléfono 3
+            <div class="inner-addon left-addon">
+              <i class="glyphicon glyphicon-phone"></i>
+              <input type="text" class="form-control" placeholder="Example: +11234567890"  id="phone" name="phone3" />
             </div>
 
             <label for="email">Email</label>

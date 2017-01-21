@@ -24,9 +24,9 @@ $db_record = 'emails';
 $csv_filename = 'MailList_'.$db_record.'_'.date('Y-m-d').'.csv';
 // database variables
 $hostname = "localhost";
-$user = "thrdaytr_oportun";
-$password = "oportunidadhbl";
-$database = "thrdaytr_promocionhbl";
+$user = "thrdaytr_webapp";
+$password = "pRf_&lue#LU7";
+$database = "thrdaytr_planhbl";
 // Database connecten voor alle services
 mysql_connect($hostname, $user, $password)
 or die('Could not connect: ' . mysql_error());
@@ -56,8 +56,7 @@ if($contar == 0){
 	  for($i = 2; $i < $field; $i++) {
 	    $csv_export.= '"'.$row[mysql_field_name($query,$i)].'";';
 	  } 
-	  $csv_export.= '
-	';  
+	  $csv_export.= '';  
 	}
 
 // Export the data and prompt a csv file for download

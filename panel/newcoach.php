@@ -13,8 +13,7 @@ session_start();
             }
 
 
-require('../conexion.php');
-$conexion = new mysqli('localhost', 'thrdaytr_oportun', 'oportunidadhbl', 'thrdaytr_promocionhbl');
+require('../conetion.php');
 
 if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email'])
 	&& !empty($_POST['name']) && !empty($_POST['phone']) && !empty($_POST['email'])){
@@ -24,6 +23,18 @@ if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email'])
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
+
+if (isset($_POST['phone2'])) {
+	$phone2 = $_POST['phone2'];
+}else{
+	$phone2 = "";
+}
+
+if (isset($_POST['phone3'])) {
+	$phone3 = $_POST['phone3'];
+}else{
+	$phone3 = "";
+}
 
 /*
 echo $name. "<br>";
@@ -53,7 +64,7 @@ if ($result->num_rows == 0) {
 	$result2 = $conexion->query("SELECT * FROM coachleads WHERE id = ".$rand);
 
 	if ($result2->num_rows == 0) {
-		$insert = "INSERT INTO coach(id,name,phone,email) VALUES('". $rand."','". $name."','".$phone."','". $email."')";
+		$insert = "INSERT INTO coach(id,name,phone,phone2,phone3,email) VALUES('". $rand."','". $name."','".$phone."','".$phone2."','".$phone2."','". $email."')";
 		if ($conexion->query($insert) == TRUE) {
 			echo" <script>alert('User registered Successfully!');
 			history.back();</script>";
@@ -67,7 +78,7 @@ if ($result->num_rows == 0) {
 
 	}else{
 		$rand2 = rand(0,99999999);
-		$insert2 = "INSERT INTO coach(id,name,phone,email) VALUES('". $rand2."','". $name."','".$phone."','". $email."')";
+		$insert2 = "INSERT INTO coach(id,name,phone,phone2,phone3,email) VALUES('". $rand2."','". $name."','".$phone."','".$phone2."','".$phone2."','". $email."')";
 		if ($conexion->query($insert2) == TRUE) {
 			echo" <script>alert('User registered Successfully!');
 			history.back();</script>";
@@ -82,7 +93,7 @@ if ($result->num_rows == 0) {
 
 }else{
 	$rand3 = rand(0,99999999);
-	$insert3 = ("INSERT INTO coach(id,name,phone,email) VALUES('". $rand3."','". $name."','".$phone."','". $email."')");
+	$insert3 = ("INSERT INTO coach(id,name,phone,phone2,phone3,email) VALUES('". $rand3."','". $name."','".$phone."','".$phone2."','".$phone2."','". $email."')");
 	if ($conexion->query($insert3) == TRUE) {
 		echo" <script>alert('User registered Successfully!');
 			history.back();</script>";

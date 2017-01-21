@@ -258,12 +258,6 @@ if ($tipo_usu == "Administrador") {
 						<li>&nbsp;&nbsp;Editar Tab</li>
 					</ul>
 				</a>
-				<a href="editdownline.php" target="search_iframe">
-					<ul>
-						<li><span class="fa fa-pencil" aria-hidden="true"></i></li>
-						<li>&nbsp;&nbsp;Editar Bajo Linea</li>
-					</ul>
-				</a>
 				<a href="new-coach-leads.php" target="search_iframe">
 					<ul>
 						<li><span class="fa fa-user-plus" aria-hidden="true"></i></li>
@@ -274,12 +268,6 @@ if ($tipo_usu == "Administrador") {
 					<ul>
 						<li><span class="fa fa-desktop" aria-hidden="true"></i></li>
 						<li>&nbsp;&nbsp;Crear Capturadoras</li>
-					</ul>
-				</a>
-				<a href="delete-website.php" target="search_iframe">
-					<ul>
-						<li><span class="glyphicon glyphicon-trash" aria-hidden="true"></li>
-						<li>&nbsp;&nbsp;Eliminar Capturadora</li>
 					</ul>
 				</a>
 				<a href="mywebs.php" target="search_iframe">
@@ -304,6 +292,12 @@ if ($tipo_usu == "Administrador") {
 					<ul>
 						<li><span class="fa fa-pencil" aria-hidden="true"></i></li>
 						<li>&nbsp;&nbsp;Crear Usuario</li>
+					</ul>
+				</a>
+				<a href="help.php" target="search_iframe">
+					<ul>
+						<li><span class="fa fa-question" aria-hidden="true"></i></li>
+						<li>&nbsp;&nbsp;Ayuda</li>
 					</ul>
 				</a>
 				<a href="../class/close.php">
@@ -342,12 +336,6 @@ if ($tipo_usu == "Administrador") {
 						<li>&nbsp;&nbsp;Mi Perfil</li>
 					</ul>
 				</a>
-				<a href="editdownline.php" target="search_iframe">
-					<ul>
-						<li><span class="fa fa-pencil" aria-hidden="true"></i></li>
-						<li>&nbsp;&nbsp;Editar Bajo Linea</li>
-					</ul>
-				</a>
 				<a href="new-coach-leads.php" target="search_iframe">
 					<ul>
 						<li><span class="fa fa-user-plus" aria-hidden="true"></i></li>
@@ -358,12 +346,6 @@ if ($tipo_usu == "Administrador") {
 					<ul>
 						<li><span class="fa fa-desktop" aria-hidden="true"></i></li>
 						<li>&nbsp;&nbsp;Crear Capturadoras</li>
-					</ul>
-				</a>
-				<a href="delete-website.php" target="search_iframe">
-					<ul>
-						<li><span class="glyphicon glyphicon-trash" aria-hidden="true"></li>
-						<li>&nbsp;&nbsp;Eliminar Capturadoras</li>
 					</ul>
 				</a>
 				<a href="mywebs.php" target="search_iframe">
@@ -382,6 +364,12 @@ if ($tipo_usu == "Administrador") {
 					<ul>
 						<li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></li>
 						<li>&nbsp;&nbsp;Lista de Correo</li>
+					</ul>
+				</a>
+				<a href="help.php" target="search_iframe">
+					<ul>
+						<li><span class="fa fa-question" aria-hidden="true"></i></li>
+						<li>&nbsp;&nbsp;Ayuda</li>
 					</ul>
 				</a>
 				<a href="../class/close.php">
@@ -426,12 +414,6 @@ if ($tipo_usu == "Administrador") {
 						<li>&nbsp;&nbsp;Crear Capturadoras</li>
 					</ul>
 				</a>
-				<a href="delete-website.php" target="search_iframe">
-					<ul>
-						<li><span class="glyphicon glyphicon-trash" aria-hidden="true"></li>
-						<li>&nbsp;&nbsp;Eliminar Capturadora</li>
-					</ul>
-				</a>
 				<a href="mywebs.php" target="search_iframe">
 					<ul>
 						<li><span class="glyphicon glyphicon-globe" aria-hidden="true"></li>
@@ -450,6 +432,12 @@ if ($tipo_usu == "Administrador") {
 						<li>&nbsp;&nbsp;Lista de Correo</li>
 					</ul>
 				</a>
+				<a href="help.php" target="search_iframe">
+					<ul>
+						<li><span class="fa fa-question" aria-hidden="true"></i></li>
+						<li>&nbsp;&nbsp;Ayuda</li>
+					</ul>
+				</a>
 				<a href="../class/close.php">
 					<ul>
 						<li><span class="glyphicon glyphicon-off" aria-hidden="true"></span></li>
@@ -464,14 +452,14 @@ if ($tipo_usu == "Administrador") {
 	<!-- FIN MENU USUARIO -->
 <?php } ?>
 
-<div class="col-md-9" style="padding-left: 0pximportant; padding-right: 0px!important;margin-left: 0px!important; margin-right: 0px!important;">
-			<iframe src="panel.php" width="100%" height="680px" name="search_iframe"></iframe>
+<div class="col-md-9" style="padding-left: 0px!important; padding-right: 0px!important;margin-left: 0px!important; margin-right: 0px!important;">
+			<iframe src="panel.php" width="110%" height="100%" name="search_iframe"></iframe>
 		</div>
 
-
+<!--
 <div class="clearfix"></div>
 
-<!--
+
 		<div class="footer">
 			<div class="copyright text-center">
 					<p><b>&copy; 2016 All rights reserved | Vincent Anzellini</b> </p>

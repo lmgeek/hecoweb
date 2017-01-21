@@ -87,7 +87,7 @@ body {
 
             <?php 
 
-            }elseif ($tipo_usu == "Lider" && $tipo_usu == "Usuario"){
+            }elseif ($tipo_usu == "Lider" || $tipo_usu == "Usuario"){
               ?>
 
               <input type="hidden" name="coach" value="<?php echo $id_name; ?>" readonly>
