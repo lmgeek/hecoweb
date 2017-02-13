@@ -288,6 +288,12 @@ if ($tipo_usu == "Administrador") {
 						<li>&nbsp;&nbsp;Lista de Correo</li>
 					</ul>
 				</a>
+				<a href="../email/" target="search_iframe">
+					<ul>
+						<li><span class="fa fa-envelope" aria-hidden="true"></li>
+						<li>&nbsp;&nbsp;Enviar Correo</li>
+					</ul>
+				</a>
 				<a href="new-user.php" target="search_iframe">
 					<ul>
 						<li><span class="fa fa-pencil" aria-hidden="true"></i></li>
@@ -366,6 +372,12 @@ if ($tipo_usu == "Administrador") {
 						<li>&nbsp;&nbsp;Lista de Correo</li>
 					</ul>
 				</a>
+				<a href="../email/" target="search_iframe">
+					<ul>
+						<li><span class="fa fa-envelope" aria-hidden="true"></li>
+						<li>&nbsp;&nbsp;Enviar Correo</li>
+					</ul>
+				</a>
 				<a href="help.php" target="search_iframe">
 					<ul>
 						<li><span class="fa fa-question" aria-hidden="true"></i></li>
@@ -430,6 +442,12 @@ if ($tipo_usu == "Administrador") {
 					<ul>
 						<li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></li>
 						<li>&nbsp;&nbsp;Lista de Correo</li>
+					</ul>
+				</a>
+				<a href="../email/" target="search_iframe">
+					<ul>
+						<li><span class="fa fa-envelope" aria-hidden="true"></li>
+						<li>&nbsp;&nbsp;Enviar Correo</li>
 					</ul>
 				</a>
 				<a href="help.php" target="search_iframe">

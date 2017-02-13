@@ -1,0 +1,5 @@
+[11-Feb-2017 11:58:46 America/Denver] PHP Fatal error:  Call to undefined method Mailin::send_email() in /home2/thrdaytr/public_html/mytampaherbal/hecoweb/email/email2.php on line 64
+[11-Feb-2017 12:00:26 America/Denver] PHP Fatal error:  Call to undefined method Mailin::send_email() in /home2/thrdaytr/public_html/mytampaherbal/hecoweb/email/email2.php on line 64
+[11-Feb-2017 12:03:04 America/Denver] PHP Fatal error:  Call to undefined method Mailin::send_email() in /home2/thrdaytr/public_html/mytampaherbal/hecoweb/email/email2.php on line 64
+[11-Feb-2017 12:12:49 America/Denver] PHP Fatal error:  Cannot redeclare class Mailin in /home2/thrdaytr/public_html/mytampaherbal/hecoweb/email/Mailin.php on line 8
+[11-Feb-2017 12:15:11 America/Denver] PHP Fatal error:  Cannot redeclare class Mailin in /home2/thrdaytr/public_html/mytampaherbal/hecoweb/email/V2.0/Mailin.php on line 8

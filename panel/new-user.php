@@ -108,7 +108,7 @@ body {
           <div class="form-group col-xs-6">
           <label for="coach">Selecione un Entrenador Asociado</label>
             <div class="inner-addon left-addon">
-              <select name="id_coach"  class="form-control" required>
+              <select name="id_coach_lead"  class="form-control" required>
                 <option value="">>-----------------Seleccionar Entrenador--------------<</option>
                   <?php
                   $result = $conexion->query("SELECT * FROM coach");
@@ -134,6 +134,8 @@ body {
               <input type="password" class="form-control" placeholder="**********"  id="password" name="password" required/>
             </div>
 
+            <input type="hidden" name="tipo_usu" value="2">
+<!--
             <label for="coach">Selecione un Entrenador Asociado</label>
             <div class="inner-addon left-addon">
               <select name="tipo_usu"  class="form-control" required>
@@ -142,7 +144,7 @@ body {
                 <option value="2">Lider de Negocio</option>
               </select>
             </div>                
-
+-->
             <input type="submit" class="btn btn-success" value="Registrar >"/>
                 
           </div>

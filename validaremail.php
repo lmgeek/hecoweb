@@ -22,8 +22,14 @@
   //MENSAJE DEL EMAIL
   $mensaje = "
         Recibimos una solicitud de reestablecimiento de contraseña a HERBALIFE COACH WEBAPP. ¿La enviaste tu?<br><br>
-        Si has pedido esto, puedes cambiar la contraseña mediante el enlace:     ".$link."   Si no fuiste tu quien la solicitó puedes desactivar este mensaje iniciando sesión con tu cuenta<br><br>
-        Gracias,<br>
+        Si has pedido esto, puedes cambiar la contraseña mediante el enlace:
+
+           ".$link."   
+
+           Si no fuiste tu quien la solicitó puedes desactivar este mensaje iniciando sesión con tu cuenta
+
+
+        Gracias,
         NOTA: EL TIEMPO DE VALIDACION DEL CODIGO DE REESTABLECIMIENTO DE CONTRASEÑA SERÁ DE 24 HORAS.";
   $mensaje = stripslashes($mensaje);
 
@@ -33,7 +39,7 @@
 		  $cabeceras .= "X-MSMail-Priority: High\n";
 		  $cabeceras .= "X-Mailer: Widgets.com Server";
 		  $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-		$cabeceras .= 'From: HECOWEB <soporte@oportunidadhbl.com>' . "\r\n";
+		$cabeceras .= 'From: HECOWEB <soporte@planhbl.com>' . "\r\n";
 		
 		mail($email, "Recuperar contraseña", $mensaje, $cabeceras);
 	}
@@ -46,26 +52,75 @@
 	if( $email != "" ){   
    		include("conetion.php");
 
-   		$sql = " SELECT * FROM users WHERE email = '$email' ";
-   		$resultado = $conexion->query($sql);
+   		$sql = "SELECT * FROM coach WHERE email = '".$email."'";
+   		$search = $conexion->query($sql);
+   		if($search->num_rows > 0){
+	   		$row = $search->fetch_assoc();
+	   		$result = $row['id'];
+	   		echo $result;
 
-   		if($resultado->num_rows > 0){
-      		$usuario = $resultado->fetch_assoc();
-			$linkTemporal = generarLinkTemporal( $usuario['id'], $usuario['user'] );
-      		if($linkTemporal){
-        		enviarEmail( $email, $linkTemporal );
-        		echo '<script>
-        		 alert("Un correo ha sido enviado a su cuenta de email con las instrucciones para restablecer la contraseña");
-        		 history.back(); </script>';
-      		}
+	   		$sql1 = "SELECT * FROM users WHERE idname = '".$result."'";
+	   		$resultado = $conexion->query($sql1);
+
+	   		if($resultado->num_rows > 0){
+	      		$usuario = $resultado->fetch_assoc();
+				$linkTemporal = generarLinkTemporal( $usuario['id'], $usuario['user'] );
+	      		if($linkTemporal){
+	        		enviarEmail( $email, $linkTemporal );
+	        		echo '<script>
+	        		 alert("Un correo ha sido enviado a su cuenta de email con las instrucciones para restablecer la contraseña");
+	        		 history.back(); </script>';
+	      		}
+	   		}
+	   		else{
+	   			echo '<script> alert("No existe una cuenta asociada a ese correo.");
+	   			history.back(); </script>';
+	   		}
+
+
+	   	}else{
+
+
+	   		$sql2 = "SELECT * FROM coachleads WHERE email = '".$email."'";
+	   		$search2 = $conexion->query($sql2);
+	   		if($search2->num_rows > 0){
+		   		$row = $search2->fetch_assoc();
+		   		$result = $row['id'];
+		   		echo $result;
+
+		   		$sql1 = "SELECT * FROM users WHERE idname = '".$result."'";
+		   		$resultado = $conexion->query($sql1);
+
+		   		if($resultado->num_rows > 0){
+		      		$usuario = $resultado->fetch_assoc();
+					$linkTemporal = generarLinkTemporal( $usuario['id'], $usuario['user'] );
+		      		if($linkTemporal){
+		        		enviarEmail( $email, $linkTemporal );
+		        		echo '<script>
+		        		 alert("Un correo ha sido enviado a su cuenta de email con las instrucciones para restablecer la contraseña");
+		        		 history.back(); </script>';
+		      		}
+		   		}
+		   		else{
+		   			echo '<script> alert("No existe una cuenta asociada a ese correo.");
+		   			history.back(); </script>';
+		   		}
+
+
+		   	}else{
+	   			echo '<script> alert("Correo No existe.");
+	   			history.back(); </script>';
+	   		}
+
+
    		}
-   		else
-   			echo '<script> alert("No existe una cuenta asociada a ese correo.");
-   			history.back(); </script>';
+
+   		
 	}
-	else
+	else{
    		echo '<script> alert("Debes introducir el email de la cuenta");
    		history.back(); </script>';
+   	}
  	echo json_encode( $respuesta );
 
 

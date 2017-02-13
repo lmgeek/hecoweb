@@ -208,128 +208,19 @@ window.onclick = function(event) {
       </span>
       <span class="video-link" data-video-id="'.$video3.$idvideo3.'" data-video-width="1280px" data-video-height="720px" data-video-autoplay="1" ></span>
     </div>
-    <?php set_time_limit(0);
-if($_POST["Continue"]){
-  //EMAIL DEL DESTINATARIO
-  $FromName = $_POST["firstname"]." ".$_POST["lastname"];
-  $FromMail = $mail_coach;
-  $Phone = $_POST["phone"];
-  $firstname = $_POST["firstname"];
-  $lastname = $_POST["lastname"];
-  $meta = $_POST["custom_1"];
-  //ASUNTO DEL EMAIL
-  $asunto = "3daytrial Captura";
-  //MENSAJE DEL EMAIL
-  $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
-<html xmlns=\'http://www.w3.org/1999/xhtml\'>
- <head>
-<meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
-<meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
-</head>
-<body style=\'margin: 20px; padding: 0;\'>
-<table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
- <tr>
-   <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
-    <img src=\'http://3daytrialonline.com/herbalife.png\' alt=\'Creating Email Magic\' width=\'100%\' height=\'100%\' style=\'display: block;\' />
-   </td>
- </tr>
- <tr>
-   <td bgcolor=\'#ffffff\' style=\'padding: 40px 30px 40px 30px;\'>
-    <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-   <tr>
-    <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
-     Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
-    </td>
-    <td>Meta: " . $meta . "</td>
-   </tr>
-   <tr>
-     <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-        Gracias por mostrar tu interés en nuestro programa de 3 días de prueba, uno de nuestros Coaches se pondrá en contacto contigo lo antes posible.
-    </td>
-   </tr>
-   <tr>
-    <td>
-      
-    </td>
-   </tr>
-    </table>
-   </td>
- </tr>
- <tr>
-<td style=\'padding: 30px 30px 30px 30px;\'>
-  <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-      <tr align=\'center\' >
-        <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          
-          <b><i>IMPORTANT NOTE:</i> No responda a este mensaje, si este mensaje llega a usted PARA incorrectos y considerar el SPAM,<BR>
-          Contacta con Soporte Técnico: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
-         </td>
-      </tr>
-  </table>
-</td>
- </tr>
-</table>
-</body>
-</html>";
-  $mensaje = stripslashes($mensaje);
-  //CABECERA DEL EMAIL
-  $headers .= "MIME-Version: 1.0\n";
-  $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-  $headers .= "From: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "To: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "Reply-To: " . $FromMail . "\n";
-  $headers .= "X-Priority: 1\n";
-  $headers .= "X-MSMail-Priority: High\n";
-  $headers .= "X-Mailer: Widgets.com Server";
-  //ARQUIVO CON LOS EMAILS
-  $arquivo = $_POST["lista"];
-  //GENERANDO UN ARRAY CON A LISTA
-  $file = explode("\n", $arquivo);
-  $i = 1;
-}
- ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
         <h2 id="goform">¡Empieza ahora!</h2>
         <p>Rellena este formulario para empezar ahora!</p>
-         <?php 
-          if($_POST["Continue"]) { ?>
-          <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
-            <tr>
-              <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-             <?
-              foreach ($file as $mail) {
-                if(mail($mail, $asunto, $mensaje, $headers)) {
-                  echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
-                  <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
-                  $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
-                  if ($conexion->query($insert) == TRUE) {
-                    echo" <script>alert(\'Message Send Successfully!\');
-                    </script>";
-                  }else{
-                    echo "<script>
-                        history.back();
-                      </script>";
-                  }
-                } else {
-                  echo $mail[$i]." <font color=red>Don´t Send Message</font><br><hr>";
-                  
-                }
-              }
-              ?>
-              </td>
-            </tr>
-          </table>
-          <br><br>
-        <?php }  ?>
-        <form method="post" action="">
+
+              
+        
+        <form method="post" action="http://planhbl.com/hecoweb/email/email01.php">
           <input type="hidden" name="message_group_admin_id" value="55">
-          <input name="revisit" value="1" type="hidden">
+          <input name="web" value="3dt" type="hidden">
           <input type="hidden" name="activity_id" value="15">
-          <input type="hidden" name="score_id" value="4">
+          <input type="hidden" name="id_coach" value="'.$id_coach.'">
+          <input type="hidden" name="subject" value="3 Day Trial Pack">
           <div class="form-group">
             <input type="name" name="firstname" class="form-control" placeholder="Nombre" required></div>
           <div class="form-group">
@@ -337,9 +228,9 @@ if($_POST["Continue"]){
           <div class="form-group">
             <input type="phone" name="phone" class="form-control" placeholder="Introduce tu Número de Telefono" required></div>
           <div class="form-group">
-            <input type="lista" name="lista" class="form-control" placeholder="Introduce tu Email" required></div>
+            <input type="email" name="email" class="form-control" placeholder="Introduce tu Email" required></div>
           <div class="form-group">
-            <select class="form-control" name="custom_1">
+            <select class="form-control" name="meta">
               <option value="">Selecciona tu Meta</option>
               <option value="Lose Weight">Perder Peso</option>
               <option value="Build Muscle">Ganar Masa Muscular</option>
@@ -417,7 +308,7 @@ if($_POST["Continue"]){
             <img src="../assets/images/bonus-3.jpg" class="img-responsive">
             <figcaption>
               <div class="bonus-data"> <span class="count">3</span>
-                <h4>Responsabilidades de la libre y Grupo de Apoyo</h4>
+                <h4>Grupo de Apoyo y Soporte</h4>
                 <p>Aquí es el momento de la verdad! ¿Se queda cuentas?
                    Nuestros Distribuidores le ayudarán a mantener sus pies
                    en el fuego a través del uno-a-uno y la rendición de
@@ -493,7 +384,7 @@ if($_POST["Continue"]){
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
               </i><font size"5em">' . $phone . '</a></font>
-            <h4>Seré su Distribuidor Nutrición para los próximos 3 días ...</h4>
+            <h4>Seré su Asesor de Bienestar para los próximos 3 días ...</h4>
             <p>Cuando usted toma mi Desafío salud de pruebas de 3 días, le ayudaré a desarrollar un plan
               de nutrición personal! Sus objetivos son únicos y su plan de nutrición debe ser así! Yo
               personalmente uso de estos productos y puedo decir que trabajo! Empiece hoy. Mire hacia adelante voy a ayudarle!</p>
@@ -798,128 +689,19 @@ window.onclick = function(event) {
         <iframe src="https://player.vimeo.com/video/'.$idvideo3.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
     </div>
-    <?php set_time_limit(0);
-if($_POST["Continue"]){
-  //EMAIL DEL DESTINATARIO
-  $FromName = $_POST["firstname"]." ".$_POST["lastname"];
-  $FromMail = $mail_coach;
-  $Phone = $_POST["phone"];
-  $firstname = $_POST["firstname"];
-  $lastname = $_POST["lastname"];
-  $meta = $_POST["custom_1"];
-  //ASUNTO DEL EMAIL
-  $asunto = "3daytrial Captura";
-  //MENSAJE DEL EMAIL
-  $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
-<html xmlns=\'http://www.w3.org/1999/xhtml\'>
- <head>
-<meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
-<meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
-</head>
-<body style=\'margin: 20px; padding: 0;\'>
-<table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
- <tr>
-   <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
-    <img src=\'http://3daytrialonline.com/herbalife.png\' alt=\'Creating Email Magic\' width=\'100%\' height=\'100%\' style=\'display: block;\' />
-   </td>
- </tr>
- <tr>
-   <td bgcolor=\'#ffffff\' style=\'padding: 40px 30px 40px 30px;\'>
-    <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-   <tr>
-    <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
-     Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
-    </td>
-    <td>Meta: " . $meta . "</td>
-   </tr>
-   <tr>
-     <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-        Gracias por mostrar tu interés en nuestro programa de 3 días de prueba, uno de nuestros Coaches se pondrá en contacto contigo lo antes posible.
-    </td>
-   </tr>
-   <tr>
-    <td>
-      
-    </td>
-   </tr>
-    </table>
-   </td>
- </tr>
- <tr>
-<td style=\'padding: 30px 30px 30px 30px;\'>
-  <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-      <tr align=\'center\' >
-        <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          
-          <b><i>IMPORTANT NOTE:</i> No responda a este mensaje, si este mensaje llega a usted PARA incorrectos y considerar el SPAM,<BR>
-          Contacta con Soporte Técnico: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
-         </td>
-      </tr>
-  </table>
-</td>
- </tr>
-</table>
-</body>
-</html>";
-  $mensaje = stripslashes($mensaje);
-  //CABECERA DEL EMAIL
-  $headers .= "MIME-Version: 1.0\n";
-  $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-  $headers .= "From: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "To: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "Reply-To: " . $FromMail . "\n";
-  $headers .= "X-Priority: 1\n";
-  $headers .= "X-MSMail-Priority: High\n";
-  $headers .= "X-Mailer: Widgets.com Server";
-  //ARQUIVO CON LOS EMAILS
-  $arquivo = $_POST["lista"];
-  //GENERANDO UN ARRAY CON A LISTA
-  $file = explode("\n", $arquivo);
-  $i = 1;
-}
- ?>
-    <dic class="col-md-6">
+     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
         <h2 id="goform">¡Empieza ahora!</h2>
         <p>Rellena este formulario para empezar ahora!</p>
-         <?php 
-          if($_POST["Continue"]) { ?>
-          <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
-            <tr>
-              <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-             <?
-              foreach ($file as $mail) {
-                if(mail($mail, $asunto, $mensaje, $headers)) {
-                  echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
-                  <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
-                  $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
-                  if ($conexion->query($insert) == TRUE) {
-                    echo" <script>alert(\'Message Send Successfully!\');
-                    </script>";
-                  }else{
-                    echo "<script>
-                        history.back();
-                      </script>";
-                  }
-                } else {
-                  echo $mail[$i]." <font color=red>Don´t Send Message</font><br><hr>";
-                  
-                }
-              }
-              ?>
-              </td>
-            </tr>
-          </table>
-          <br><br>
-        <?php }  ?>
-        <form method="post" action="">
+
+              
+        
+        <form method="post" action="http://planhbl.com/hecoweb/email/email01.php">
           <input type="hidden" name="message_group_admin_id" value="55">
-          <input name="revisit" value="1" type="hidden">
+          <input name="web" value="3dt" type="hidden">
           <input type="hidden" name="activity_id" value="15">
-          <input type="hidden" name="score_id" value="4">
+          <input type="hidden" name="id_coach" value="'.$id_coach.'">
+          <input type="hidden" name="subject" value="3 Day Trial Pack">
           <div class="form-group">
             <input type="name" name="firstname" class="form-control" placeholder="Nombre" required></div>
           <div class="form-group">
@@ -927,9 +709,9 @@ if($_POST["Continue"]){
           <div class="form-group">
             <input type="phone" name="phone" class="form-control" placeholder="Introduce tu Número de Telefono" required></div>
           <div class="form-group">
-            <input type="lista" name="lista" class="form-control" placeholder="Introduce tu Email" required></div>
+            <input type="email" name="email" class="form-control" placeholder="Introduce tu Email" required></div>
           <div class="form-group">
-            <select class="form-control" name="custom_1">
+            <select class="form-control" name="meta">
               <option value="">Selecciona tu Meta</option>
               <option value="Lose Weight">Perder Peso</option>
               <option value="Build Muscle">Ganar Masa Muscular</option>
@@ -993,7 +775,7 @@ if($_POST["Continue"]){
           <div class="bonus-main group wow fadeInDown">
             <img src="../../assets/images/bonus-3-1.jpg" class="img-responsive">
               <div class="bonus-data"> <span class="count">3</span>
-                <h4>Responsabilidades de la libre y Grupo de Apoyo</h4>
+                <h4>Grupo de Apoyo y Soporte</h4>
                 <p>Aquí es el momento de la verdad! ¿Se queda cuentas?
                    Nuestros Distribuidores le ayudarán a mantener sus pies
                    en el fuego a través del uno-a-uno y la rendición de
@@ -1066,7 +848,7 @@ if($_POST["Continue"]){
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
               </i><font size"5em">' . $phone . '</a></font>
-            <h4>Seré su Distribuidor Nutrición para los próximos 3 días ...</h4>
+            <h4>Seré su Asesor de Bienestar para los próximos 3 días ...</h4>
             <p>Cuando usted toma mi Desafío salud de pruebas de 3 días, le ayudaré a desarrollar un plan
               de nutrición personal! Sus objetivos son únicos y su plan de nutrición debe ser así! Yo
               personalmente uso de estos productos y puedo decir que trabajo! Empiece hoy. Mire hacia adelante voy a ayudarle!</p>
@@ -1169,7 +951,6 @@ if($_POST["Continue"]){
 </body>
 </html>
 ';
-
 
 
 
@@ -1313,128 +1094,19 @@ window.onclick = function(event) {
       </span>
       <span class="video-link" data-video-id="'.$video1.$idvideo1.'" data-video-width="1280px" data-video-height="720px" data-video-autoplay="1" ></span>
     </div>
-<?php set_time_limit(0);
-if($_POST["Continue"]){
-  //EMAIL DEL DESTINATARIO
-  $FromName = $_POST["firstname"]." ".$_POST["lastname"];
-  $FromMail = $mail_coach;
-  $Phone = $_POST["phone"];
-  $firstname = $_POST["firstname"];
-  $lastname = $_POST["lastname"];
-  $meta = $_POST["custom_1"];
-  //ASUNTO DEL EMAIL
-  $asunto = "3daytrial Captura";
-  //MENSAJE DEL EMAIL
-  $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
-<html xmlns=\'http://www.w3.org/1999/xhtml\'>
- <head>
-<meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
-<meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
-</head>
-<body style=\'margin: 20px; padding: 0;\'>
-<table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
- <tr>
-   <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
-    <img src=\'http://3daytrialonline.com/herbalife.png\' alt=\'Creating Email Magic\' width=\'100%\' height=\'100%\' style=\'display: block;\' />
-   </td>
- </tr>
- <tr>
-   <td bgcolor=\'#ffffff\' style=\'padding: 40px 30px 40px 30px;\'>
-    <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-   <tr>
-    <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
-     Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
-    </td>
-    <td>Meta: " . $meta . "</td>
-   </tr>
-   <tr>
-     <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-        Gracias por mostrar tu interés en nuestro programa de 3 días de prueba, uno de nuestros Coaches se pondrá en contacto contigo lo antes posible.
-    </td>
-   </tr>
-   <tr>
-    <td>
-      
-    </td>
-   </tr>
-    </table>
-   </td>
- </tr>
- <tr>
-<td style=\'padding: 30px 30px 30px 30px;\'>
-  <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-      <tr align=\'center\' >
-        <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          
-          <b><i>IMPORTANT NOTE:</i> No responda a este mensaje, si este mensaje llega a usted PARA incorrectos y considerar el SPAM,<BR>
-          Contacta con Soporte Técnico: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
-         </td>
-      </tr>
-  </table>
-</td>
- </tr>
-</table>
-</body>
-</html>";
-  $mensaje = stripslashes($mensaje);
-  //CABECERA DEL EMAIL
-  $headers .= "MIME-Version: 1.0\n";
-  $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-  $headers .= "From: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "To: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "Reply-To: " . $FromMail . "\n";
-  $headers .= "X-Priority: 1\n";
-  $headers .= "X-MSMail-Priority: High\n";
-  $headers .= "X-Mailer: Widgets.com Server";
-  //ARQUIVO CON LOS EMAILS
-  $arquivo = $_POST["lista"];
-  //GENERANDO UN ARRAY CON A LISTA
-  $file = explode("\n", $arquivo);
-  $i = 1;
-}
- ?>
-    <dic class="col-md-6">
+ <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
         <h2 id="goform">¡Empieza ahora!</h2>
         <p>Rellena este formulario para empezar ahora!</p>
-         <?php 
-          if($_POST["Continue"]) { ?>
-          <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
-            <tr>
-              <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-             <?
-              foreach ($file as $mail) {
-                if(mail($mail, $asunto, $mensaje, $headers)) {
-                  echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
-                  <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
-                  $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
-                  if ($conexion->query($insert) == TRUE) {
-                    echo" <script>alert(\'Message Send Successfully!\');
-                    </script>";
-                  }else{
-                    echo "<script>
-                        history.back();
-                      </script>";
-                  }
-                } else {
-                  echo $mail[$i]." <font color=red>Don´t Send Message</font><br><hr>";
-                  
-                }
-              }
-              ?>
-              </td>
-            </tr>
-          </table>
-          <br><br>
-        <?php }  ?>
-        <form method="post" action="">
+
+              
+        
+        <form method="post" action="http://planhbl.com/hecoweb/email/email01.php">
           <input type="hidden" name="message_group_admin_id" value="55">
-          <input name="revisit" value="1" type="hidden">
+          <input name="web" value="3daytrial" type="hidden">
           <input type="hidden" name="activity_id" value="15">
-          <input type="hidden" name="score_id" value="4">
+          <input type="hidden" name="id_coach" value="'.$id_coach.'">
+          <input type="hidden" name="subject" value="3 Day Trial Pack">
           <div class="form-group">
             <input type="name" name="firstname" class="form-control" placeholder="Nombre" required></div>
           <div class="form-group">
@@ -1442,9 +1114,9 @@ if($_POST["Continue"]){
           <div class="form-group">
             <input type="phone" name="phone" class="form-control" placeholder="Introduce tu Número de Telefono" required></div>
           <div class="form-group">
-            <input type="lista" name="lista" class="form-control" placeholder="Introduce tu Email" required></div>
+            <input type="email" name="email" class="form-control" placeholder="Introduce tu Email" required></div>
           <div class="form-group">
-            <select class="form-control" name="custom_1">
+            <select class="form-control" name="meta">
               <option value="">Selecciona tu Meta</option>
               <option value="Lose Weight">Perder Peso</option>
               <option value="Build Muscle">Ganar Masa Muscular</option>
@@ -1522,7 +1194,7 @@ if($_POST["Continue"]){
             <img src="../../assets/images/bonus-3.jpg" class="img-responsive">
             <figcaption>
               <div class="bonus-data"> <span class="count">3</span>
-                <h4>Responsabilidades de la libre y Grupo de Apoyo</h4>
+                <h4>Grupo de Apoyo y Soporte</h4>
                 <p>Aquí es el momento de la verdad! ¿Se queda cuentas?
                    Nuestros Distribuidores le ayudarán a mantener sus pies
                    en el fuego a través del uno-a-uno y la rendición de
@@ -1598,7 +1270,7 @@ if($_POST["Continue"]){
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
               </i><font size"5em">' . $phone . '</a></font>
-            <h4>Seré su Distribuidor Nutrición para los próximos 3 días ...</h4>
+            <h4>Seré su Asesor de Bienestar para los próximos 3 días ...</h4>
             <p>Cuando usted toma mi Desafío salud de pruebas de 3 días, le ayudaré a desarrollar un plan
               de nutrición personal! Sus objetivos son únicos y su plan de nutrición debe ser así! Yo
               personalmente uso de estos productos y puedo decir que trabajo! Empiece hoy. Mire hacia adelante voy a ayudarle!</p>
@@ -1910,128 +1582,19 @@ window.onclick = function(event) {
         <iframe src="https://player.vimeo.com/video/'.$idvideo1.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
     </div>
-    <?php set_time_limit(0);
-if($_POST["Continue"]){
-  //EMAIL DEL DESTINATARIO
-  $FromName = $_POST["firstname"]." ".$_POST["lastname"];
-  $FromMail = $mail_coach;
-  $Phone = $_POST["phone"];
-  $firstname = $_POST["firstname"];
-  $lastname = $_POST["lastname"];
-  $meta = $_POST["custom_1"];
-  //ASUNTO DEL EMAIL
-  $asunto = "3daytrial Captura";
-  //MENSAJE DEL EMAIL
-  $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
-<html xmlns=\'http://www.w3.org/1999/xhtml\'>
- <head>
-<meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
-<meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
-</head>
-<body style=\'margin: 20px; padding: 0;\'>
-<table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
- <tr>
-   <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
-    <img src=\'http://3daytrialonline.com/herbalife.png\' alt=\'Creating Email Magic\' width=\'100%\' height=\'100%\' style=\'display: block;\' />
-   </td>
- </tr>
- <tr>
-   <td bgcolor=\'#ffffff\' style=\'padding: 40px 30px 40px 30px;\'>
-    <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-   <tr>
-    <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
-     Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
-    </td>
-    <td>Meta: " . $meta . "</td>
-   </tr>
-   <tr>
-     <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-        Gracias por mostrar tu interés en nuestro programa de 3 días de prueba, uno de nuestros Coaches se pondrá en contacto contigo lo antes posible.
-    </td>
-   </tr>
-   <tr>
-    <td>
-      
-    </td>
-   </tr>
-    </table>
-   </td>
- </tr>
- <tr>
-<td style=\'padding: 30px 30px 30px 30px;\'>
-  <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-      <tr align=\'center\' >
-        <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          
-          <b><i>IMPORTANT NOTE:</i> No responda a este mensaje, si este mensaje llega a usted PARA incorrectos y considerar el SPAM,<BR>
-          Contacta con Soporte Técnico: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
-         </td>
-      </tr>
-  </table>
-</td>
- </tr>
-</table>
-</body>
-</html>";
-  $mensaje = stripslashes($mensaje);
-  //CABECERA DEL EMAIL
-  $headers .= "MIME-Version: 1.0\n";
-  $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-  $headers .= "From: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "To: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "Reply-To: " . $FromMail . "\n";
-  $headers .= "X-Priority: 1\n";
-  $headers .= "X-MSMail-Priority: High\n";
-  $headers .= "X-Mailer: Widgets.com Server";
-  //ARQUIVO CON LOS EMAILS
-  $arquivo = $_POST["lista"];
-  //GENERANDO UN ARRAY CON A LISTA
-  $file = explode("\n", $arquivo);
-  $i = 1;
-}
- ?>
-    <dic class="col-md-6">
+     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
         <h2 id="goform">¡Empieza ahora!</h2>
         <p>Rellena este formulario para empezar ahora!</p>
-         <?php 
-          if($_POST["Continue"]) { ?>
-          <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
-            <tr>
-              <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-             <?
-              foreach ($file as $mail) {
-                if(mail($mail, $asunto, $mensaje, $headers)) {
-                  echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
-                  <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
-                  $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
-                  if ($conexion->query($insert) == TRUE) {
-                    echo" <script>alert(\'Message Send Successfully!\');
-                    </script>";
-                  }else{
-                    echo "<script>
-                        history.back();
-                      </script>";
-                  }
-                } else {
-                  echo $mail[$i]." <font color=red>Don´t Send Message</font><br><hr>";
-                  
-                }
-              }
-              ?>
-              </td>
-            </tr>
-          </table>
-          <br><br>
-        <?php }  ?>
-        <form method="post" action="">
+
+              
+        
+        <form method="post" action="http://planhbl.com/hecoweb/email/email01.php">
           <input type="hidden" name="message_group_admin_id" value="55">
-          <input name="revisit" value="1" type="hidden">
+          <input name="web" value="3daytrial" type="hidden">
           <input type="hidden" name="activity_id" value="15">
-          <input type="hidden" name="score_id" value="4">
+          <input type="hidden" name="id_coach" value="'.$id_coach.'">
+          <input type="hidden" name="subject" value="3 Day Trial Pack">
           <div class="form-group">
             <input type="name" name="firstname" class="form-control" placeholder="Nombre" required></div>
           <div class="form-group">
@@ -2039,9 +1602,9 @@ if($_POST["Continue"]){
           <div class="form-group">
             <input type="phone" name="phone" class="form-control" placeholder="Introduce tu Número de Telefono" required></div>
           <div class="form-group">
-            <input type="lista" name="lista" class="form-control" placeholder="Introduce tu Email" required></div>
+            <input type="email" name="email" class="form-control" placeholder="Introduce tu Email" required></div>
           <div class="form-group">
-            <select class="form-control" name="custom_1">
+            <select class="form-control" name="meta">
               <option value="">Selecciona tu Meta</option>
               <option value="Lose Weight">Perder Peso</option>
               <option value="Build Muscle">Ganar Masa Muscular</option>
@@ -2105,7 +1668,7 @@ if($_POST["Continue"]){
           <div class="bonus-main group wow fadeInDown">
             <img src="../../../assets/images/bonus-3-1.jpg" class="img-responsive">
               <div class="bonus-data"> <span class="count">3</span>
-                <h4>Responsabilidades de la libre y Grupo de Apoyo</h4>
+                <h4>Grupo de Apoyo y Soporte</h4>
                 <p>Aquí es el momento de la verdad! ¿Se queda cuentas?
                    Nuestros Distribuidores le ayudarán a mantener sus pies
                    en el fuego a través del uno-a-uno y la rendición de
@@ -2178,7 +1741,7 @@ if($_POST["Continue"]){
             <a href="tel:' . $phone . '">
               <i class="fa fa-phone">
               </i><font size"5em">' . $phone . '</a></font>
-            <h4>Seré su Distribuidor Nutrición para los próximos 3 días ...</h4>
+            <h4>Seré su Asesor de Bienestar para los próximos 3 días ...</h4>
             <p>Cuando usted toma mi Desafío salud de pruebas de 3 días, le ayudaré a desarrollar un plan
               de nutrición personal! Sus objetivos son únicos y su plan de nutrición debe ser así! Yo
               personalmente uso de estos productos y puedo decir que trabajo! Empiece hoy. Mire hacia adelante voy a ayudarle!</p>
@@ -2417,124 +1980,19 @@ window.onclick = function(event) {
       <span class="video-link" data-video-id="'.$video2.$idvideo2.'" data-video-width="1280px" data-video-height="720px"  ></span>
 
     </div>
-    <?php set_time_limit(0);
-if($_POST["Continue"]){
-  //EMAIL DEL DESTINATARIO
-  $FromName = $_POST["firstname"]." ".$_POST["lastname"];
-  $FromMail = $mail_coach;
-  $Phone = $_POST["phone"];
-  $firstname = $_POST["firstname"];
-  $lastname = $_POST["lastname"];
-  $meta = $_POST["custom_1"];
-  //ASUNTO DEL EMAIL
-  $asunto = "3daytrial Captura";
-  //MENSAJE DEL EMAIL
-  $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
-<html xmlns=\'http://www.w3.org/1999/xhtml\'>
- <head>
-<meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
-<meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
-</head>
-<body style=\'margin: 20px; padding: 0;\'>
-<table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
- <tr>
-   <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
-    <img src=\'http://3daytrialonline.com/herbalife.png\' alt=\'Creating Email Magic\' width=\'100%\' height=\'100%\' style=\'display: block;\' />
-   </td>
- </tr>
- <tr>
-   <td bgcolor=\'#ffffff\' style=\'padding: 40px 30px 40px 30px;\'>
-    <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-   <tr>
-    <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
-     Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
-    </td>
-    <td>Meta: " . $meta . "</td>
-   </tr>
-   <tr>
-     <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-        Thank you for showing your interest in our program of 3 day trial, one of our Coaches will contact you as soon as possible.
-    </td>
-   </tr>
-   <tr>
-    <td>
-      
-    </td>
-   </tr>
-    </table>
-   </td>
- </tr>
- <tr>
-<td style=\'padding: 30px 30px 30px 30px;\'>
-  <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-      <tr align=\'center\' >
-        <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          
-          <b><i>IMPORTANT NOTE:</i> DO NOT REPLY TO THIS MESSAGE, IF THIS MESSAGE COMES TO YOU FOR ANY INCORRECT OR CONSIDER THE SPAM,
-            Contact technical support: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
-         </td>
-      </tr>
-  </table>
-</td>
- </tr>
-</table>
-</body>
-</html>";
-   $mensaje = stripslashes($mensaje);
-  //CABECERA DEL EMAIL
-  $headers .= "MIME-Version: 1.0\n";
-  $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-  $headers .= "From: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "To: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "Reply-To: " . $FromMail . "\n";
-  $headers .= "X-Priority: 1\n";
-  $headers .= "X-MSMail-Priority: High\n";
-  $headers .= "X-Mailer: Widgets.com Server";
-  //ARQUIVO CON LOS EMAILS
-  $arquivo = $_POST["lista"];
-  //GENERANDO UN ARRAY CON A LISTA
-  $file = explode("\n", $arquivo);
-  $i = 1;
-}
- ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
-        <h2 id="goform">Get Started now!</h2>
-        <p>Fill out this form to get started now!</p>
-          <?php 
-          if($_POST["Continue"]) { ?>
-          <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
-            <tr>
-              <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-              <?
-              foreach ($file as $mail) {
-                if(mail($mail, $asunto, $mensaje, $headers)) {
-                  echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
-                  <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
-                  $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
-                  if ($conexion->query($insert) == TRUE) {
-                    echo" <script>alert(\'Message Send Successfully!\');
-                    </script>";
-                  }else{
-                    echo "<script>
-                        history.back();
-                      </script>";
-                  }
-                } else {
-                  echo $mail[$i]." <font color=red>Don´t Send Message</font><br><hr>";
-                  
-                }
-              }
-              ?>
-              </td>
-            </tr>
-          </table>
-          <br><br>
-        <?php }  ?>
-        <form method="post" action="">
+        <h2 id="goform">¡Empieza ahora!</h2>
+        <p>Rellena este formulario para empezar ahora!</p>
+
+              
+        
+        <form method="post" action="http://planhbl.com/hecoweb/email/email01.php">
+          <input type="hidden" name="message_group_admin_id" value="55">
+          <input name="web" value="3daytrial" type="hidden">
+          <input type="hidden" name="activity_id" value="15">
+          <input type="hidden" name="id_coach" value="'.$id_coach.'">
+          <input type="hidden" name="subject" value="3 Day Trial Pack">
           <div class="form-group">
             <input type="name" name="firstname" class="form-control" placeholder="First Name" required></div>
           <div class="form-group">
@@ -2553,12 +2011,14 @@ if($_POST["Continue"]){
             </select>
           </div>
           <div class="form-group">
-           <input type="submit" value="Continue" name="Continue" id="Continue" class="btn"></div>
+           <input type="submit" value="Continue" id="Continue" name="Continue" class="btn"></div>
         </form>
       </div>
+     
     </dic>
   </div>
 </div>
+
 <!--Bonus Part-->
 <section class="bonus">
   <div class="container">
@@ -2982,124 +2442,19 @@ window.onclick = function(event) {
         <iframe src="https://player.vimeo.com/video/'.$idvideo2.'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
     </div>
-    <?php set_time_limit(0);
-if($_POST["Continue"]){
-  //EMAIL DEL DESTINATARIO
-  $FromName = $_POST["firstname"]." ".$_POST["lastname"];
-  $FromMail = $mail_coach;
-  $Phone = $_POST["phone"];
-  $firstname = $_POST["firstname"];
-  $lastname = $_POST["lastname"];
-  $meta = $_POST["custom_1"];
-  //ASUNTO DEL EMAIL
-  $asunto = "3daytrial Captura";
-  //MENSAJE DEL EMAIL
-  $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
-<html xmlns=\'http://www.w3.org/1999/xhtml\'>
- <head>
-<meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
-<meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
-</head>
-<body style=\'margin: 20px; padding: 0;\'>
-<table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
- <tr>
-   <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
-    <img src=\'http://3daytrialonline.com/herbalife.png\' alt=\'Creating Email Magic\' width=\'100%\' height=\'100%\' style=\'display: block;\' />
-   </td>
- </tr>
- <tr>
-   <td bgcolor=\'#ffffff\' style=\'padding: 40px 30px 40px 30px;\'>
-    <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-   <tr>
-    <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
-     Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
-    </td>
-    <td>Meta: " . $meta . "</td>
-   </tr>
-   <tr>
-     <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-        Thank you for showing your interest in our program of 3 day trial, one of our Coaches will contact you as soon as possible.
-    </td>
-   </tr>
-   <tr>
-    <td>
-      
-    </td>
-   </tr>
-    </table>
-   </td>
- </tr>
- <tr>
-<td style=\'padding: 30px 30px 30px 30px;\'>
-  <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-      <tr align=\'center\' >
-        <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          
-          <b><i>IMPORTANT NOTE:</i> DO NOT REPLY TO THIS MESSAGE, IF THIS MESSAGE COMES TO YOU FOR ANY INCORRECT OR CONSIDER THE SPAM,
-            Contact technical support: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
-         </td>
-      </tr>
-  </table>
-</td>
- </tr>
-</table>
-</body>
-</html>";
-   $mensaje = stripslashes($mensaje);
-  //CABECERA DEL EMAIL
-  $headers .= "MIME-Version: 1.0\n";
-  $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-  $headers .= "From: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "To: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "Reply-To: " . $FromMail . "\n";
-  $headers .= "X-Priority: 1\n";
-  $headers .= "X-MSMail-Priority: High\n";
-  $headers .= "X-Mailer: Widgets.com Server";
-  //ARQUIVO CON LOS EMAILS
-  $arquivo = $_POST["lista"];
-  //GENERANDO UN ARRAY CON A LISTA
-  $file = explode("\n", $arquivo);
-  $i = 1;
-}
- ?>
     <dic class="col-md-6">
       <div class="form-part wow fadeInDown">
-        <h2 id="goform">Get Started now!</h2>
-        <p>Fill out this form to get started now!</p>
-          <?php 
-          if($_POST["Continue"]) { ?>
-          <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
-            <tr>
-              <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-              <?
-              foreach ($file as $mail) {
-                if(mail($mail, $asunto, $mensaje, $headers)) {
-                  echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
-                  <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
-                  $i++;
-                  $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'3daytrial\')";
-                  if ($conexion->query($insert) == TRUE) {
-                    echo" <script>alert(\'Message Send Successfully!\');
-                    </script>";
-                  }else{
-                    echo "<script>
-                        history.back();
-                      </script>";
-                  }
-                } else {
-                  echo $mail[$i]." <font color=red>Don´t Send Message</font><br><hr>";
-                  
-                }
-              }
-              ?>
-              </td>
-            </tr>
-          </table>
-          <br><br>
-        <?php }  ?>
-        <form method="post" action="">
+        <h2 id="goform">¡Empieza ahora!</h2>
+        <p>Rellena este formulario para empezar ahora!</p>
+
+              
+        
+        <form method="post" action="http://planhbl.com/hecoweb/email/email01.php">
+          <input type="hidden" name="message_group_admin_id" value="55">
+          <input name="web" value="3daytrial" type="hidden">
+          <input type="hidden" name="activity_id" value="15">
+          <input type="hidden" name="id_coach" value="'.$id_coach.'">
+          <input type="hidden" name="subject" value="3 Day Trial Pack">
           <div class="form-group">
             <input type="name" name="firstname" class="form-control" placeholder="First Name" required></div>
           <div class="form-group">
@@ -3118,12 +2473,15 @@ if($_POST["Continue"]){
             </select>
           </div>
           <div class="form-group">
-           <input type="submit" value="Continue" name="Continue" id="Continue" class="btn"></div>
+           <input type="submit" value="Continue" id="Continue" name="Continue" class="btn"></div>
         </form>
       </div>
+     
     </dic>
   </div>
 </div>
+
+
 <!--Bonus Part-->
 <section class="bonus">
   <div class="container">

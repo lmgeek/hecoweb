@@ -46,7 +46,7 @@ if ($tipo_usu == "Administrador") {
 
  ?>
 
-<div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
       <div class="col-md-3 " style="padding: 5px 0">
         <img src="../images/3daytrial-2.png" alt="" width="100%">
       </div>
@@ -61,6 +61,28 @@ if ($tipo_usu == "Administrador") {
             <span class="glyphicon glyphicon-edit"></span> Duplicar a Tab
           </button>&nbsp;&nbsp;
           <button type="button" class="btn btn-success"  onclick=" location.href='../class/create3daytrial2.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar a Bajo Linea
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+      <div class="col-md-3 " style="padding: 5px 0">
+        <img src="../images/3daytrial-2.png" alt="" width="100%">
+      </div>
+      <div class="col-md-9 " style="padding-right: 0px;">
+        <h3>Reto de 7 días</h3>
+
+
+        <h4>Crear Capturadora para:</h4>
+
+        <div>
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/create7daytrial.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar a Tab
+          </button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/create7daytrial2.php' ">
             <span class="glyphicon glyphicon-edit"></span> Duplicar a Bajo Linea
           </button>
 
@@ -132,6 +154,7 @@ if ($tipo_usu == "Administrador") {
       </div>
     </div>
 
+
   </div> 
 </div>
 
@@ -143,7 +166,7 @@ if ($tipo_usu == "Administrador") {
   ?>
   
 
-  <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
       <div class="col-md-3 " style="padding: 5px 0">
         <img src="../images/3daytrial-2.png" alt="" width="100%">
       </div>
@@ -158,6 +181,28 @@ if ($tipo_usu == "Administrador") {
             <span class="glyphicon glyphicon-edit"></span> Duplicar
           </button>&nbsp;&nbsp;
           <button type="button" class="btn btn-success"  onclick=" location.href='../class/create3daytrial2.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar a Bajo Linea
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+      <div class="col-md-3 " style="padding: 5px 0">
+        <img src="../images/3daytrial-2.png" alt="" width="100%">
+      </div>
+      <div class="col-md-9 " style="padding-right: 0px;">
+        <h3>Reto de 7 días</h3>
+
+
+        <h4>Crear Capturadora para:</h4>
+
+        <div>
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/create7daytrial.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar
+          </button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/create7daytrial2.php' ">
             <span class="glyphicon glyphicon-edit"></span> Duplicar a Bajo Linea
           </button>
 
@@ -240,7 +285,7 @@ if ($tipo_usu == "Administrador") {
   ?>
   
 
-  <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
       <div class="col-md-3 " style="padding: 5px 0">
         <img src="../images/3daytrial-2.png" alt="" width="100%">
       </div>
@@ -249,6 +294,22 @@ if ($tipo_usu == "Administrador") {
 
         <div>
           <button type="button" class="btn btn-success"  onclick=" location.href='../class/create3daytrial2.php' ">
+            <span class="glyphicon glyphicon-edit"></span> Duplicar
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+      <div class="col-md-3 " style="padding: 5px 0">
+        <img src="../images/3daytrial-2.png" alt="" width="100%">
+      </div>
+      <div class="col-md-9 " style="padding-right: 0px;">
+        <h3>Reto de 7 días</h3>
+
+        <div>
+          <button type="button" class="btn btn-success"  onclick=" location.href='../class/create7daytrial2.php' ">
             <span class="glyphicon glyphicon-edit"></span> Duplicar
           </button>
 

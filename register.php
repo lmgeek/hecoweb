@@ -43,12 +43,12 @@
 */
 require('conexion.php');
 
-if (isset($_POST['id_coach']) && isset($_POST['user']) && isset($_POST['password']) && isset($_POST['tipo_usu'])
-	&& !empty($_POST['id_coach']) && !empty($_POST['user']) && !empty($_POST['password']) && !empty($_POST['tipo_usu'])){
+if (isset($_POST['id_coach_lead']) && isset($_POST['user']) && isset($_POST['password']) && isset($_POST['tipo_usu'])
+	&& !empty($_POST['id_coach_lead']) && !empty($_POST['user']) && !empty($_POST['password']) && !empty($_POST['tipo_usu'])){
 
 //aqui resivimos los valores
 
-$id_coach = $_POST['id_coach'];
+$id_coach = $_POST['id_coach_lead'];
 $user = $_POST['user'];
 $password = md5($_POST['password']);
 $tipo_usu = $_POST['tipo_usu'];

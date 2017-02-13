@@ -133,109 +133,7 @@ $web = '
         </section>
         <!-- END colagen-->
 
-        <?php set_time_limit(0);
-
-
-if($_POST["Continue"]){
-
-
-  //EMAIL DEL DESTINATARIO
-  $FromName = $_POST["firstname"]." ".$_POST["lastname"];
-  $FromMail = $mail_coach;
-  $Phone = $_POST["phone"];
-  $firstname = $_POST["firstname"];
-  $lastname = $_POST["lastname"];
-
-
-  //ASUNTO DEL EMAIL
-  $asunto = "Collagen Captura";
-
-
-  //MENSAJE DEL EMAIL
-  $mensaje = "
-  <!DOCTYPE html PUBLIC \'-//W3C//DTD XHTML 1.0 Transitional//EN\' \'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\'>
-<html xmlns=\'http://www.w3.org/1999/xhtml\'>
- <head>
-<meta http-equiv=\'Content-Type\' content=\'text/html; charset=UTF-8\' />
-<title>Herbalife Email</title>
-<meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'/>
-</head>
-<body style=\'margin: 20px; padding: 0;\'>
-
-
-<table align=\'center\' border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'600\'>
- <tr>
-   <td align=\'center\'  style=\'padding: 40px 0 30px 0;\'>
-    <img src=\'http://3daytrialonline.com/herbalife.png\' alt=\'Creating Email Magic\' width=\'100%\' height=\'100%\' style=\'display: block;\' />
-   </td>
- </tr>
- <tr>
-   <td bgcolor=\'#ffffff\' style=\'padding: 40px 30px 40px 30px;\'>
-    <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-   <tr>
-    <td style=\'color: #153643; font-family: Arial, sans-serif; font-size: 24px;\'>
-     Estimado Miembro: <b><i>" . $FromName ." <br>Phone: ". $Phone . "</i></b> 
-    </td>
-   </tr>
-   <tr>
-     <td style=\'padding: 20px 0 30px 0;color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-        Thank you for showing your interest in our program of <font color=\'#339400\' size=3><b>Collagen Beauty Booster</b></font>, one of our Coaches will contact you as soon as possible.
-    </td>
-   </tr>
-   <tr>
-    <td>
-      
-    </td>
-   </tr>
-    </table>
-   </td>
- </tr>
- <tr>
-<td style=\'padding: 30px 30px 30px 30px;\'>
-  <table border=\'0\' cellpadding=\'0\' cellspacing=\'0\' width=\'100%\'>
-      <tr align=\'center\' >
-        <td width=\'75%\' style=\'color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;\'>
-          
-          <b><i>IMPORTANT NOTE:</i> DO NOT REPLY TO THIS MESSAGE, IF THIS MESSAGE COMES TO YOU FOR ANY INCORRECT OR CONSIDER THE SPAM,
-            Contact technical support: \'tsuluismarin@gmail.com\' y \'h24family@gmail.com\' </b>
-         </td>
-      </tr>
-  </table>
-</td>
- </tr>
-</table>
-
-
-</body>
-</html>";
-  $mensaje = stripslashes($mensaje);
-  //CABECERA DEL EMAIL
-  $headers .= "MIME-Version: 1.0\n";
-  $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-  $headers .= "From: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "To: ".$FromName . " <" . $FromMail . ">\n";
-  $headers .= "Reply-To: " . $FromMail . "\n";
-  $headers .= "X-Priority: 1\n";
-  $headers .= "X-MSMail-Priority: High\n";
-  $headers .= "X-Mailer: Widgets.com Server";
-
-
-  //ARQUIVO CON LOS EMAILS
-
-  $arquivo = $_POST["lista"];
-
-
-  //GENERANDO UN ARRAY CON A LISTA
-
-  $file = explode("\n", $arquivo);
-
-  $i = 1;
-
-}
-
- ?>
-
-        <!-- Contact us -->
+         <!-- Contact us -->
         <section>
             <div class="container relative">
                 <div class="row flow-offset-2">
@@ -243,41 +141,13 @@ if($_POST["Continue"]){
 
                     <div class="col-sm-10 col-sm-preffix-1 offset-2">
                         <div class="box-2 box-md-absolute bg-contrast text-md-left">
-                            <?php 
-                              if($_POST["Continue"]) { ?>
-                              <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#333333">
-                                <tr>
-                                  <td bgcolor="#f5f5f5" style="font-family:verdana;color:#000000;font-size:15px;" class="text-center">
-                                  <?
-                                  foreach ($file as $mail) {
-                                    if(mail($mail, $asunto, $mensaje, $headers)) {
-                                      echo " <font color=green face=verdana size=4>Message Sending Successfully.!</font><br>
-                                      <font color=green face=verdana><b>".$mail."<b><br>Check the Spam Folder<br>if you have not yet reached<br>the message</font>";
-                                      $i++;
-                                      $insert = "INSERT INTO emails(id_coach,firstname,lastname,email,phone,web) VALUES(\'".$id_coach."\',\'".$firstname."\',\'".$lastname."\',\'".$arquivo."\',\'".$Phone."\',\'Collagen\')";
-                                      if ($conexion->query($insert) == TRUE) {
-                                        echo" <script>alert(\'Message Send Successfully!\');
-                                        </script>";
-                                      }else{
-                                        echo "<script>
-                                            history.back();
-                                          </script>";
-                                      }
-                                    } else {
-                                      echo $mail[$i]." <font color=red>Don´t Send Message</font><br><hr>";
-                                      
-                                    }
-                                  }
-                                  ?>
-                                  </td>
-                                </tr>
-                              </table>
-                              <br><br>
-                            <?php }  ?>
                             <h2>Free Consultation</h2>
 
                             <!-- RD Mailform -->
-                            <form class="rd-mailform" method="post" action="">
+                            <form class="rd-mailform" method="post" action="http://planhbl.com/hecoweb/email/email01.php">
+                                <input name="web" value="Collagen" type="hidden">
+                                <input type="hidden" name="id_coach" value="'.$id_coach_lead.'">
+                                <input type="hidden" name="subject" value="Collagen Beauty">
                                 <!-- RD Mailform Type -->
                                 <input name="form-type" value="contact" type="hidden">
                                 <!-- END RD Mailform Type -->
@@ -291,7 +161,7 @@ if($_POST["Continue"]){
                                     <span class="mfValidation"></span><span class="mfPlaceHolder"></span></label>
 
                                     <label class="mfInput" data-add-placeholder="">
-                                        <input name="lista" type="email" placeholder="E-mail" required>
+                                        <input name="email" type="email" placeholder="E-mail" required>
                                     <span class="mfValidation"></span><span class="mfPlaceHolder"> </span></label>
 
                                     <label class="mfInput" data-add-placeholder="">

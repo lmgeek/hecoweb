@@ -87,12 +87,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						$host= $_SERVER["HTTP_HOST"];
 						//$url= $_SERVER["REQUEST_URI"];
 						$web = 'http://' . $host . "/3daytrial/" . $url . "/";
-						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='3daytrial'");
+						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='3daytrial'");
 						$captures = $search1->num_rows;
-						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -130,6 +131,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						<div>
 							<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 							<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=3daytrial&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 							
 						</div>
 					</div>
@@ -150,12 +155,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						$host= $_SERVER["HTTP_HOST"];
 						//$url= $_SERVER["REQUEST_URI"];
 						$web = 'http://' . $host . "/3dt/" . $url . "/";
-						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='3dt'");
+						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='3dt'");
 						$captures = $search1->num_rows;
-						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -193,6 +199,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						<div>
 							<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 							<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=3dt&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 							
 						</div>
 					</div>
@@ -214,12 +224,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						$host= $_SERVER["HTTP_HOST"];
 						//$url= $_SERVER["REQUEST_URI"];
 						$web = 'http://' . $host . "/rf3dt/" . $url . "/";
-						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='rd3dt'");
+						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='rd3dt'");
 						$captures = $search1->num_rows;
-						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -257,6 +268,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						<div>
 							<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 							<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=rd3dt&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 							
 						</div>
 					</div>
@@ -264,6 +279,160 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 			</div>
 		<?php 
 		}
+
+		if ($sites == "7diastrial") {
+			?>
+			<div class="row">
+				<div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+					<div class="col-md-3 " style="padding: 5px 0">
+						<img src="../images/7daytrial-2.png" alt="" width="100%">
+					</div>
+					<div class="col-md-9 " style="padding-right: 0px;">
+						<h4>Reto de 7 días (Latinoamerica)</h4>
+						<?php 
+						$host= $_SERVER["HTTP_HOST"];
+						//$url= $_SERVER["REQUEST_URI"];
+						$web = 'http://' . $host . "/7diastrial/" . $url;
+						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = '".$id_downline."' AND web='7diastrial'");
+						$captures = $search1->num_rows;
+						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
+						if ($search2->num_rows>0) {
+							while ($visita = $search2->fetch_assoc()) {
+								$visitas = $visita['visitas']+$visitas;
+							}
+							
+						}else{
+							$visitas = "0";
+						}
+						?>
+						<a href="<?php echo $web; ?>" target="_blank"><?php echo $web; ?></a>
+						<h4>Comparte esta Capturadora en:</h4>
+						<div>
+							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $web; ?>" target="_blank">
+								<button type="button" class="btn btn-info shared-facebook" >
+							       <span class="fa fa-facebook"></span> 
+							    </button>
+						    </a>
+						    <a href="https://twitter.com/?status=Me gusta esta página <?php echo $web; ?> " target="_blank">
+							    <button type="button" class="btn btn-info shared-twitter" >
+							       <span class="fa fa-twitter"></span> 
+							    </button>
+						    </a>
+						    <a href="https://plus.google.com/share?url=<?php echo $web; ?>" target="_blank">
+							    <button type="button" class="btn btn-info shared-google" >
+							       <span class="fa fa-google-plus"></span> 
+							    </button>
+						    </a>
+						    <a href="http://www.linkedin.com/shareArticle?url=<?php echo $web; ?>" target="_blank">
+							    <button type="button" class="btn btn-info shared-link" >
+							       <span class="fa fa-linkedin"></span> 
+							    </button>
+						    </a>
+						    <a href="mailto:?subject=Check%20Out%20My%20Link&amp;body=Check%20Out%20My%20Link%20at%20<?php echo $web; ?>" target="_blank">
+							    <button type="button" class="btn btn-info shared-email" >
+							       <span class="fa fa-envelope"></span> 
+							    </button>
+						    </a>
+						    <a href="#" target="_blank" data-toggle="popover" data-trigger="hover" data-content="Crear Codigo QR" onClick="alert('en mantenimiento!')">
+							    <button type="button" class="btn btn-info shared-twitter" >
+							       <span class="fa fa-qrcode"></span> 
+							    </button>
+						    </a>
+						</div>
+						<br><br>
+						<div>
+							<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
+							<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=7diastrial&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php 
+		}
+
+		if ($sites == "rd7dt") {
+			?>
+			<div class="row">
+				<div class="col-md-12" style="background-color: #ffffff; margin-bottom: 20px;border-radius: 5px">
+					<div class="col-md-3 " style="padding: 5px 0">
+						<img src="../images/7daytrial-2.png" alt="" width="100%">
+					</div>
+					<div class="col-md-9 " style="padding-right: 0px;">
+						<h4>Reto de 7 días (Version Rep&uacuteblica Dominicana)</h4>
+						<?php 
+						$host= $_SERVER["HTTP_HOST"];
+						//$url= $_SERVER["REQUEST_URI"];
+						$web = 'http://' . $host . "/rd7dt/" . $url;
+						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='rd7dt'");
+						$captures = $search1->num_rows;
+						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
+						if ($search2->num_rows>0) {
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
+						}else{
+							$visitas = "0";
+						}
+						?>
+						<a href="<?php echo $web; ?>" target="_blank"><?php echo $web; ?></a>
+						<h4>Comparte esta Capturadora en:</h4>
+						<div>
+							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $web; ?>" target="_blank">
+								<button type="button" class="btn btn-info shared-facebook" >
+							       <span class="fa fa-facebook"></span> 
+							    </button>
+						    </a>
+						    <a href="https://twitter.com/?status=Me gusta esta página <?php echo $web; ?> " target="_blank">
+							    <button type="button" class="btn btn-info shared-twitter" >
+							       <span class="fa fa-twitter"></span> 
+							    </button>
+						    </a>
+						    <a href="https://plus.google.com/share?url=<?php echo $web; ?>" target="_blank">
+							    <button type="button" class="btn btn-info shared-google" >
+							       <span class="fa fa-google-plus"></span> 
+							    </button>
+						    </a>
+						    <a href="http://www.linkedin.com/shareArticle?url=<?php echo $web; ?>" target="_blank">
+							    <button type="button" class="btn btn-info shared-link" >
+							       <span class="fa fa-linkedin"></span> 
+							    </button>
+						    </a>
+						    <a href="mailto:?subject=Check%20Out%20My%20Link&amp;body=Check%20Out%20My%20Link%20at%20<?php echo $web; ?>" target="_blank">
+							    <button type="button" class="btn btn-info shared-email" >
+							       <span class="fa fa-envelope"></span> 
+							    </button>
+						    </a>
+						    <a href="#" target="_blank" data-toggle="popover" data-trigger="hover" data-content="Crear Codigo QR" onClick="alert('en mantenimiento!')">
+							    <button type="button" class="btn btn-info shared-twitter" >
+							       <span class="fa fa-qrcode"></span> 
+							    </button>
+						    </a>
+						</div>
+						<br><br>
+						<div>
+							<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
+							<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=3daytrial&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>';
+							 
+							 echo '<a href="../email/export_csv2.php?web=rd7dt&id_name='.$coach_id.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php 
+		}
+
 
 		if ($sites == "FitCamp") {
 			?>
@@ -279,12 +448,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 					//$url= $_SERVER["REQUEST_URI"];
 					$web = 'http://' . $host . "/FitCamp/" . $url . "/";
 
-					$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='FitCamp'");
+					$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='FitCamp'");
 					$captures = $search1->num_rows;
-					$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+					$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -323,6 +493,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 					<div>
 						<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 						<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+						<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=FitCamp&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 
 					</div>
 				</div>
@@ -343,12 +517,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 					$host= $_SERVER["HTTP_HOST"];
 					//$url= $_SERVER["REQUEST_URI"];
 					$web = 'http://' . $host . "/Fitcamp/" . $url . "/";
-					$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='Fitcamp'");
+					$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='Fitcampco'");
 					$captures = $search1->num_rows;
-					$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+					$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -386,6 +561,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 					<div>
 						<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;+</button>
 						<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+						<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=Fitcampco&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 
 					</div>
 				</div>
@@ -406,12 +585,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 					$host= $_SERVER["HTTP_HOST"];
 					//$url= $_SERVER["REQUEST_URI"];
 					$web = 'http://' . $host . "/rdfitcamp/" . $url . "/";
-					$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='rdfitcamp'");
+					$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='rdfitcamp'");
 					$captures = $search1->num_rows;
-					$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+					$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -449,6 +629,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 					<div>
 						<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 						<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+						<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=rdfitcamp&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 
 					</div>
 				</div>
@@ -469,12 +653,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 					$host= $_SERVER["HTTP_HOST"];
 					//$url= $_SERVER["REQUEST_URI"];
 					$web = 'http://' . $host . "/skin/collagen/" . $url . "/";
-					$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='Collagen'");
+					$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='Collagen'");
 					$captures = $search1->num_rows;
-					$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+					$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -512,6 +697,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 					<div>
 						<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 						<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+						<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=Collagen&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 
 					</div>
 				</div>
@@ -533,12 +722,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						$host= $_SERVER["HTTP_HOST"];
 						//$url= $_SERVER["REQUEST_URI"];
 						$web = 'http://' . $host . "/BodyScan/" . $url . "/";
-						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='BodyScan'");
+						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='BodyScan'");
 						$captures = $search1->num_rows;
-						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -576,6 +766,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						<div>
 							<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 							<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=BodyScan&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 							
 						</div>
 					</div>
@@ -597,12 +791,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						$host= $_SERVER["HTTP_HOST"];
 						//$url= $_SERVER["REQUEST_URI"];
 						$web = 'http://' . $host . "/bodyscan/" . $url . "/";
-						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='bodyscan'");
+						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='bodyscanco'");
 						$captures = $search1->num_rows;
-						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -640,6 +835,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						<div>
 							<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 							<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=bodyscanco&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 							
 						</div>
 					</div>
@@ -661,12 +860,13 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						$host= $_SERVER["HTTP_HOST"];
 						//$url= $_SERVER["REQUEST_URI"];
 						$web = 'http://' . $host . "/rdBodyscan/" . $url . "/";
-						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_name." AND web='rdBodyscan'");
+						$search1 = $conexion->query("SELECT * FROM emails WHERE id_coach = ".$id_downline." AND web='rdBodyscan'");
 						$captures = $search1->num_rows;
-						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '".$web."%'");
+						$search2 = $conexion->query("SELECT * FROM visitas WHERE enlace LIKE '%".$web."%'");
 						if ($search2->num_rows>0) {
-							$visita = $search2->fetch_assoc();
-							$visitas = $visita['visitas'];
+							while ($visita = $search2->fetch_assoc()){
+								$visitas = $visita['visitas'] + $visitas;
+							}
 						}else{
 							$visitas = "0";
 						}
@@ -704,6 +904,10 @@ if (isset($_GET['downline']) && !empty($_GET['downline'])) {
 						<div>
 							<button class="btn btn-success" style="font-weight: bold;">Visitas:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $visitas; ?>&nbsp;&nbsp;+</button>
 							<button class="btn btn-success" style="font-weight: bold;">Prospectos:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $captures; ?>&nbsp;&nbsp;+</button>
+							<?php 
+							echo '<a href="../class/deletewebsite.php?id='.$coach_id.'&dirname='.$id_downline.'" onclick="return confirmar(\'¿Are you sure to delete the registry?\')" class="btn btn-danger" style="color:#fff!important;"><i class="glyphicon glyphicon-trash"></i> Delete Web</a>&nbsp;&nbsp;';
+							echo '<a href="../email/export_csv2.php?web=rdBodyscan&id_name='.$id_downline.'" class="btn btn-info" style="color: #fff!important;"><i class="fa fa-download"></i> Descargar Mail list</a>';
+							 ?>
 							
 						</div>
 					</div>
